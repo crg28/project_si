@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -122,17 +123,17 @@ class User extends Authenticatable
         $this->attributes['updated_at'] = $updatedAt;
     }
 
-    public function orders(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
     }
 
-    public function payments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function payments(): HasMany
     {
         return $this->hasMany(Payment::class);
     }
 
-    public function reviews(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
     }

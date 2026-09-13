@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 // Author: Carlos Restrepo
 class Review extends Model
@@ -93,12 +94,12 @@ class Review extends Model
         $this->attributes['updated_at'] = $updatedAt;
     }
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function instrument(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function instrument(): BelongsTo
     {
         return $this->belongsTo(Instrument::class);
     }

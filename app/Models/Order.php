@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 // Author: Carlos Restrepo
 class Order extends Model
@@ -98,17 +101,17 @@ class Order extends Model
         return (bool) $this->delete();
     }
 
-    public function instrumentItems(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function instrumentItems(): HasMany
     {
         return $this->hasMany(InstrumentItem::class);
     }
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function payment(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function payment(): HasOne
     {
         return $this->hasOne(Payment::class);
     }
