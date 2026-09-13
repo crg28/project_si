@@ -13,4 +13,5 @@ return [
     'stock' => 'Existencias',
     'back' => 'Volver',
     'top_selling' => 'Productos más vendidos',
+    'userDetail' => 'Detalles de Usuario'
 ];

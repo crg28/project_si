@@ -14,3 +14,6 @@ Route::get('/instruments', [App\Http\Controllers\InstrumentController::class, 'i
 Route::get('/instruments/top-selling', [App\Http\Controllers\InstrumentController::class, 'topSelling'])->name('instrument.topSelling');
 Route::get('/instruments/{id}', [App\Http\Controllers\InstrumentController::class, 'show'])->name('instrument.show');
 
+// User Routes
+Route::get('/user/detail/{id}', [App\Http\Controllers\UserController::class, 'detail'])->name('user.detail');
+
