@@ -11,7 +11,7 @@ class InstrumentItemFactory extends Factory
 {
     public function definition(): array
     {
-        $instrument = Instrument::inRandomOrder()->first() ?? Instrument::factory()->create();
+        $instrument = Instrument::inRandomOrder()->first();
 
         return [
             'quantity' => fake()->numberBetween(1, 3),

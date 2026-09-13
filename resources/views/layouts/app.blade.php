@@ -36,6 +36,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('instrument.topSelling') }}">{{ __('messages.top_selling') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('instrument.mostReviewed') }}">{{ __('messages.most_reviewed') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('cart.index') }}">{{ __('messages.cart') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

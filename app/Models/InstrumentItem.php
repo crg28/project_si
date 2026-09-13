@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 // Author: Carlos Restrepo
 class InstrumentItem extends Model
@@ -98,12 +99,12 @@ class InstrumentItem extends Model
         return $this->getQuantity() * $this->getPrice();
     }
 
-    public function instrument(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function instrument(): BelongsTo
     {
         return $this->belongsTo(Instrument::class);
     }
 
-    public function order(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
     }

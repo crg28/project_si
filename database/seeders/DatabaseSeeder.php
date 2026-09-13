@@ -29,13 +29,13 @@ class DatabaseSeeder extends Seeder
         $users = User::factory(10)->create();
 
         // 2. Instruments
-        $instruments = Instrument::factory(30)->create();
+        $instruments = Instrument::factory(29)->create();
 
         // 3. Orders
         $orders = Order::factory(15)->create();
 
         // 4. Instrument Items
-        InstrumentItem::factory(30)->create();
+        InstrumentItem::factory(20)->create();
 
         // 5. Calculate totals for each order
         foreach ($orders as $order) {

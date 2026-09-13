@@ -6,11 +6,11 @@ use App\Models\Instrument;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+// Author: Carlos Restrepo
 class ReviewFactory extends Factory
 {
     public function definition(): array
     {
-        // Array used for logical comments
         $comments = [
             'Excelente calidad de sonido, superó mis expectativas.',
             'Muy buena construcción, cómodo de tocar.',
@@ -24,7 +24,7 @@ class ReviewFactory extends Factory
             'date' => fake()->dateTimeBetween('-3 months', 'now')->format('Y-m-d'),
             'content' => fake()->randomElement($comments),
             'user_id' => User::factory(),
-            'instrument_id' => Instrument::factory(),
+            'instrument_id' => Instrument::inRandomOrder()->first()->getId(),
         ];
     }
 }
