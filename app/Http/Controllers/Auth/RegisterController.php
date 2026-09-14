@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
+// Author: Carlos Restrepo
 class RegisterController extends Controller
 {
     use RegistersUsers;

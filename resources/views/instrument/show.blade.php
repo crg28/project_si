@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+    <img src="{{ asset('storage/' . $instrument->getImagePath()) }}" alt="{{ $instrument->getName() }}" class="img-fluid rounded mb-3" style="max-height: 350px; object-fit: cover;">
+
     <h1>{{ $instrument->getName() }}</h1>
 
     @if (session('error'))

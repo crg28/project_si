@@ -11,6 +11,12 @@
                     <input type="text" class="form-control mb-2" value="{{ $viewData['user']->getEmail() }}" readonly>
                     <input type="text" class="form-control mb-2" value="{{ $viewData['user']->getAddress() }}" readonly>
                     <input type="text" class="form-control mb-2" value="{{ $viewData['user']->getPhone() }}" readonly>
+
+                    @if ($viewData['user']->getRole() === 'admin')
+                        <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-primary mt-2">
+                            {{ __('messages.go_to_admin_panel') }}
+                        </a>
+                    @endif
                 </div>
             </div>
 
