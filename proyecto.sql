@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 13-09-2026 a las 23:06:07
+-- Tiempo de generación: 14-09-2026 a las 03:16:13
 -- Versión del servidor: 8.0.44
 -- Versión de PHP: 8.3.30
 
@@ -32,14 +32,6 @@ CREATE TABLE `cache` (
   `value` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `expiration` bigint NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `cache`
---
-
-INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('440hz-cache-carlos@gmail.com|127.0.0.1', 'i:2;', 1789340723),
-('440hz-cache-carlos@gmail.com|127.0.0.1:timer', 'i:1789340723;', 1789340723);
 
 -- --------------------------------------------------------
 
@@ -92,35 +84,35 @@ CREATE TABLE `instruments` (
 --
 
 INSERT INTO `instruments` (`id`, `name`, `model`, `price`, `stock`, `imagePath`, `category`, `created_at`, `updated_at`) VALUES
-(1, 'Jupiter Clarinete JCL700', 'MOD-3004', 2126.6, 0, 'instruments/icon.jpg', 'Viento', '2026-09-14 04:02:42', '2026-09-14 04:05:15'),
-(2, 'Korg Kross 2', 'MOD-0211', 2656.88, 5, 'instruments/icon.jpg', 'Teclado', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(3, 'Tama Imperialstar', 'MOD-2407', 812.84, 48, 'instruments/icon.jpg', 'Batería', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(4, 'Cordoba C5 Guitarra Clásica', 'MOD-3179', 275.64, 10, 'instruments/icon.jpg', 'Cuerdas', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(5, 'Fender Precision Bass', 'MOD-3287', 1874.01, 21, 'instruments/icon.jpg', 'Bajo', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(6, 'Stentor Cello Estudiante', 'MOD-3556', 554.46, 48, 'instruments/icon.jpg', 'Cuerdas', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(7, 'Yamaha V3 Violín', 'MOD-7500', 1198.22, 20, 'instruments/icon.jpg', 'Cuerdas', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(8, 'Yamaha TRBX304', 'MOD-6286', 2733.64, 8, 'instruments/icon.jpg', 'Bajo', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(9, 'Ibanez SR300', 'MOD-6877', 1671.25, 31, 'instruments/icon.jpg', 'Bajo', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(10, 'Mapex Tornado', 'MOD-0666', 2928.15, 25, 'instruments/icon.jpg', 'Batería', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(11, 'Yamaha YAS-280 Saxofón', 'MOD-0459', 1902.51, 4, 'instruments/icon.jpg', 'Viento', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(12, 'Ibanez RG', 'MOD-5593', 2460.56, 16, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(13, 'Casio Privia PX-160', 'MOD-0419', 3391.96, 15, 'instruments/icon.jpg', 'Teclado', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(14, 'Squier Affinity Jazz Bass', 'MOD-9521', 1155.77, 45, 'instruments/icon.jpg', 'Bajo', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(15, 'Nord Stage 3', 'MOD-1815', 1337.74, 46, 'instruments/icon.jpg', 'Teclado', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(16, 'Cremona Viola SV-130', 'MOD-1738', 2960.91, 36, 'instruments/icon.jpg', 'Cuerdas', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(17, 'Epiphone Casino', 'MOD-9944', 3423.49, 1, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(18, 'Roland Juno-DS', 'MOD-6258', 1140.33, 47, 'instruments/icon.jpg', 'Teclado', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(19, 'Gibson Les Paul', 'MOD-2295', 3308.27, 37, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(20, 'Selmer Flauta Traversa', 'MOD-2720', 2470.94, 9, 'instruments/icon.jpg', 'Viento', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(21, 'Fender Stratocaster', 'MOD-7240', 844.34, 1, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 04:02:42', '2026-09-14 04:05:15'),
-(22, 'Yamaha Pacifica', 'MOD-5342', 1898.18, 24, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(23, 'Yamaha P-125', 'MOD-7838', 2444.32, 30, 'instruments/icon.jpg', 'Teclado', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(24, 'Bach Trompeta TR300', 'MOD-6869', 2151.85, 21, 'instruments/icon.jpg', 'Viento', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(25, 'Pearl Export Series', 'MOD-7800', 1748.58, 48, 'instruments/icon.jpg', 'Batería', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(26, 'PRS SE Custom 24', 'MOD-9666', 716.62, 2, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(27, 'DW Performance Series', 'MOD-3125', 2159.97, 16, 'instruments/icon.jpg', 'Batería', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(28, 'Music Man StingRay', 'MOD-8309', 708.52, 17, 'instruments/icon.jpg', 'Bajo', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(29, 'Yamaha Stage Custom', 'MOD-0236', 1558.33, 11, 'instruments/icon.jpg', 'Batería', '2026-09-14 04:02:42', '2026-09-14 04:02:42');
+(1, 'Bach Trompeta TR300', 'MOD-2894', 3334.58, 14, 'instruments/icon.jpg', 'Viento', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(2, 'Epiphone Casino', 'MOD-3618', 3226.08, 9, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(3, 'Gibson Les Paul', 'MOD-6066', 1882.49, 37, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(4, 'Yamaha P-125', 'MOD-7173', 1277.37, 49, 'instruments/icon.jpg', 'Teclado', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(5, 'Music Man StingRay', 'MOD-4806', 2555.4, 40, 'instruments/icon.jpg', 'Bajo', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(6, 'Cordoba C5 Guitarra Clásica', 'MOD-9517', 858.86, 12, 'instruments/icon.jpg', 'Cuerdas', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(7, 'Cremona Viola SV-130', 'MOD-7350', 406.48, 17, 'instruments/icon.jpg', 'Cuerdas', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(8, 'PRS SE Custom 24', 'MOD-5825', 849.18, 35, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(9, 'Stentor Cello Estudiante', 'MOD-8959', 1966.7, 50, 'instruments/icon.jpg', 'Cuerdas', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(10, 'Yamaha YAS-280 Saxofón', 'MOD-5019', 454.8, 10, 'instruments/icon.jpg', 'Viento', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(11, 'Yamaha TRBX304', 'MOD-0125', 2234.63, 36, 'instruments/icon.jpg', 'Bajo', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(12, 'Casio Privia PX-160', 'MOD-8075', 1137.03, 18, 'instruments/icon.jpg', 'Teclado', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(13, 'Yamaha V3 Violín', 'MOD-4063', 2715.23, 45, 'instruments/icon.jpg', 'Cuerdas', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(14, 'Ibanez RG', 'MOD-2606', 1489.6, 31, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(15, 'Yamaha Pacifica', 'MOD-9866', 1939.55, 10, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(16, 'Korg Kross 2', 'MOD-2198', 1616.97, 23, 'instruments/icon.jpg', 'Teclado', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(17, 'Fender Stratocaster', 'MOD-2147', 2787.24, 41, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(18, 'Roland Juno-DS', 'MOD-6802', 529.35, 11, 'instruments/icon.jpg', 'Teclado', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(19, 'Yamaha Stage Custom', 'MOD-1761', 151.24, 39, 'instruments/icon.jpg', 'Batería', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(20, 'Selmer Flauta Traversa', 'MOD-8497', 3257.1, 39, 'instruments/icon.jpg', 'Viento', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(21, 'Squier Affinity Jazz Bass', 'MOD-7079', 2367.04, 35, 'instruments/icon.jpg', 'Bajo', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(22, 'Nord Stage 3', 'MOD-1216', 2981.97, 24, 'instruments/icon.jpg', 'Teclado', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(23, 'Mapex Tornado', 'MOD-6926', 2248.69, 14, 'instruments/icon.jpg', 'Batería', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(24, 'Fender Precision Bass', 'MOD-8408', 1436.11, 7, 'instruments/icon.jpg', 'Bajo', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(25, 'Jupiter Clarinete JCL700', 'MOD-5335', 808.36, 10, 'instruments/icon.jpg', 'Viento', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(26, 'Tama Imperialstar', 'MOD-7883', 2015.91, 21, 'instruments/icon.jpg', 'Batería', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(27, 'DW Performance Series', 'MOD-9822', 1025.39, 48, 'instruments/icon.jpg', 'Batería', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(28, 'Pearl Export Series', 'MOD-4840', 1366.21, 3, 'instruments/icon.jpg', 'Batería', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(29, 'Ibanez SR300', 'MOD-1553', 3053.55, 4, 'instruments/icon.jpg', 'Bajo', '2026-09-14 07:26:11', '2026-09-14 07:26:11');
 
 -- --------------------------------------------------------
 
@@ -143,28 +135,26 @@ CREATE TABLE `instrument_items` (
 --
 
 INSERT INTO `instrument_items` (`id`, `quantity`, `price`, `instrument_id`, `order_id`, `created_at`, `updated_at`) VALUES
-(1, 2, 3391.96, 13, 16, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(2, 1, 1902.51, 11, 17, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(3, 1, 708.52, 28, 18, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(4, 3, 2151.85, 24, 19, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(5, 3, 1337.74, 15, 20, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(6, 2, 554.46, 6, 21, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(7, 3, 2444.32, 23, 22, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(8, 3, 1155.77, 14, 23, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(9, 2, 1337.74, 15, 24, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(10, 3, 2928.15, 10, 25, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(11, 1, 812.84, 3, 26, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(12, 1, 812.84, 3, 27, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(13, 1, 1902.51, 11, 28, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(14, 1, 1198.22, 7, 29, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(15, 1, 812.84, 3, 30, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(16, 3, 1558.33, 29, 31, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(17, 2, 844.34, 21, 32, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(18, 2, 2656.88, 2, 33, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(19, 2, 2460.56, 12, 34, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(20, 3, 1155.77, 14, 35, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(21, 4, 844.34, 21, 36, '2026-09-14 04:05:15', '2026-09-14 04:05:15'),
-(22, 12, 2126.6, 1, 36, '2026-09-14 04:05:15', '2026-09-14 04:05:15');
+(1, 3, 2248.69, 23, 16, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(2, 1, 1366.21, 28, 17, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(3, 2, 1882.49, 3, 18, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(4, 3, 849.18, 8, 19, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(5, 2, 849.18, 8, 20, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(6, 2, 1436.11, 24, 21, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(7, 1, 2234.63, 11, 22, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(8, 3, 2015.91, 26, 23, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(9, 2, 1137.03, 12, 24, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(10, 3, 2234.63, 11, 25, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(11, 2, 1939.55, 15, 26, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(12, 1, 2248.69, 23, 27, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(13, 1, 1366.21, 28, 28, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(14, 1, 808.36, 25, 29, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(15, 2, 1939.55, 15, 30, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(16, 2, 1966.7, 9, 31, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(17, 2, 808.36, 25, 32, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(18, 2, 1616.97, 16, 33, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(19, 1, 1616.97, 16, 34, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(20, 2, 1025.39, 27, 35, '2026-09-14 07:26:11', '2026-09-14 07:26:11');
 
 -- --------------------------------------------------------
 
@@ -247,42 +237,41 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `date`, `total`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, '2026-06-03', 0, 12, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(2, '2026-07-13', 0, 13, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(3, '2026-06-09', 0, 14, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(4, '2026-07-23', 0, 15, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(5, '2026-04-08', 0, 16, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(6, '2026-05-19', 0, 17, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(7, '2026-04-22', 0, 18, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(8, '2026-06-20', 0, 19, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(9, '2026-04-29', 0, 20, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(10, '2026-04-29', 0, 21, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(11, '2026-07-05', 0, 22, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(12, '2026-09-05', 0, 23, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(13, '2026-07-26', 0, 24, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(14, '2026-06-27', 0, 25, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(15, '2026-04-25', 0, 26, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(16, '2026-05-20', 0, 27, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(17, '2026-05-04', 0, 28, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(18, '2026-04-28', 0, 29, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(19, '2026-08-04', 0, 30, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(20, '2026-04-01', 0, 31, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(21, '2026-08-18', 0, 32, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(22, '2026-04-24', 0, 33, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(23, '2026-04-12', 0, 34, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(24, '2026-06-07', 0, 35, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(25, '2026-04-24', 0, 36, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(26, '2026-05-28', 0, 37, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(27, '2026-08-22', 0, 38, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(28, '2026-05-06', 0, 39, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(29, '2026-06-30', 0, 40, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(30, '2026-07-05', 0, 41, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(31, '2026-07-07', 0, 42, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(32, '2026-06-25', 0, 43, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(33, '2026-05-18', 0, 44, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(34, '2026-07-07', 0, 45, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(35, '2026-06-26', 0, 46, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(36, '2026-09-13', 28896.56, 72, '2026-09-14 04:05:15', '2026-09-14 04:05:15');
+(1, '2026-06-02', 0, 12, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(2, '2026-04-28', 0, 13, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(3, '2026-07-07', 0, 14, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(4, '2026-06-05', 0, 15, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(5, '2026-04-20', 0, 16, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(6, '2026-06-22', 0, 17, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(7, '2026-07-11', 0, 18, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(8, '2026-07-08', 0, 19, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(9, '2026-05-10', 0, 20, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(10, '2026-04-16', 0, 21, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(11, '2026-06-29', 0, 22, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(12, '2026-04-14', 0, 23, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(13, '2026-05-09', 0, 24, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(14, '2026-07-22', 0, 25, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(15, '2026-08-16', 0, 26, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(16, '2026-04-01', 0, 27, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(17, '2026-07-23', 0, 28, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(18, '2026-05-14', 0, 29, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(19, '2026-04-26', 0, 30, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(20, '2026-05-13', 0, 31, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(21, '2026-05-07', 0, 32, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(22, '2026-08-23', 0, 33, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(23, '2026-08-15', 0, 34, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(24, '2026-07-29', 0, 35, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(25, '2026-04-23', 0, 36, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(26, '2026-07-22', 0, 37, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(27, '2026-06-02', 0, 38, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(28, '2026-05-07', 0, 39, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(29, '2026-06-09', 0, 40, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(30, '2026-05-02', 0, 41, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(31, '2026-07-14', 0, 42, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(32, '2026-07-18', 0, 43, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(33, '2026-05-08', 0, 44, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(34, '2026-05-15', 0, 45, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(35, '2026-08-02', 0, 46, '2026-09-14 07:26:11', '2026-09-14 07:26:11');
 
 -- --------------------------------------------------------
 
@@ -318,23 +307,21 @@ CREATE TABLE `payments` (
 --
 
 INSERT INTO `payments` (`id`, `cardNumber`, `cardExpiration`, `cvv`, `order_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, '2656719075739183', '2028-02-12', 151, 1, 12, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(2, '4246257874995', '2026-11-01', 718, 2, 13, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(3, '6011540732292825', '2027-11-18', 865, 3, 14, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(4, '4539505204688', '2028-12-18', 145, 4, 15, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(5, '3528021526077816', '2026-11-29', 124, 5, 16, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(6, '4539794587146374', '2027-07-05', 892, 6, 17, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(7, '3589695503173106', '2027-04-05', 478, 7, 18, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(8, '6011629649658994', '2029-04-29', 741, 8, 19, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(9, '4212867619438078', '2028-06-02', 877, 9, 20, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(10, '2330486248411900', '2027-02-14', 653, 10, 21, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(11, '6011243545149635', '2029-03-20', 334, 11, 22, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(12, '4556016730685134', '2029-01-27', 604, 12, 23, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(13, '4716053926043767', '2026-11-05', 561, 13, 24, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(14, '3589191553543521', '2029-05-14', 791, 14, 25, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(15, '3528121326791739', '2029-07-08', 146, 15, 26, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(16, '2124545446', '2026-09-16', 908, NULL, 72, '2026-09-14 04:05:08', '2026-09-14 04:05:08'),
-(17, '2124545446', '2026-09-16', 908, 36, 72, '2026-09-14 04:05:15', '2026-09-14 04:05:15');
+(1, '6011419278115007', '2029-01-28', 565, 1, 12, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(2, '4024007173831594', '2029-05-21', 102, 2, 13, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(3, '4485882508846604', '2026-10-13', 624, 3, 14, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(4, '5484844682812974', '2028-11-23', 214, 4, 15, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(5, '2599449696790155', '2027-07-26', 657, 5, 16, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(6, '4716109521066379', '2029-03-27', 945, 6, 17, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(7, '4916149565726', '2029-01-01', 599, 7, 18, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(8, '4716290669767281', '2028-06-04', 312, 8, 19, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(9, '5266188486328199', '2028-01-09', 462, 9, 20, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(10, '2356767024299356', '2027-09-20', 943, 10, 21, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(11, '4532764456085596', '2028-08-07', 996, 11, 22, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(12, '4716191555589054', '2028-04-08', 541, 12, 23, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(13, '4659733379047105', '2026-12-12', 984, 13, 24, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(14, '4716657925142', '2027-09-13', 480, 14, 25, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(15, '4539015950122846', '2027-06-21', 415, 15, 26, '2026-09-14 07:26:11', '2026-09-14 07:26:11');
 
 -- --------------------------------------------------------
 
@@ -357,31 +344,31 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `date`, `content`, `user_id`, `instrument_id`, `created_at`, `updated_at`) VALUES
-(1, '2026-07-21', 'Excelente calidad de sonido, superó mis expectativas.', 47, 10, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(2, '2026-08-06', 'Buena relación calidad-precio, lo recomiendo.', 48, 18, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(3, '2026-07-09', 'Excelente fabricación, llegó muy bien empacado.', 49, 23, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(4, '2026-07-27', 'El tono es increíble, perfecto para presentaciones en vivo.', 50, 8, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(5, '2026-09-05', 'Excelente fabricación, llegó muy bien empacado.', 51, 17, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(6, '2026-07-15', 'Excelente calidad de sonido, superó mis expectativas.', 52, 12, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(7, '2026-07-01', 'Excelente fabricación, llegó muy bien empacado.', 53, 14, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(8, '2026-07-14', 'El tono es increíble, perfecto para presentaciones en vivo.', 54, 26, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(9, '2026-09-13', 'El tono es increíble, perfecto para presentaciones en vivo.', 55, 3, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(10, '2026-08-18', 'El tono es increíble, perfecto para presentaciones en vivo.', 56, 11, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(11, '2026-09-05', 'El tono es increíble, perfecto para presentaciones en vivo.', 57, 13, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(12, '2026-06-23', 'Excelente calidad de sonido, superó mis expectativas.', 58, 17, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(13, '2026-07-23', 'Instrumento sólido, pequeños problemas de afinación.', 59, 9, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(14, '2026-08-24', 'Excelente fabricación, llegó muy bien empacado.', 60, 9, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(15, '2026-09-01', 'Excelente calidad de sonido, superó mis expectativas.', 61, 21, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(16, '2026-07-12', 'Muy buena construcción, cómodo de tocar.', 62, 11, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(17, '2026-09-10', 'El tono es increíble, perfecto para presentaciones en vivo.', 63, 20, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(18, '2026-06-20', 'Excelente fabricación, llegó muy bien empacado.', 64, 23, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(19, '2026-08-24', 'Muy buena construcción, cómodo de tocar.', 65, 9, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(20, '2026-08-27', 'Instrumento sólido, pequeños problemas de afinación.', 66, 23, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(21, '2026-09-13', 'Instrumento sólido, pequeños problemas de afinación.', 67, 15, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(22, '2026-08-03', 'Instrumento sólido, pequeños problemas de afinación.', 68, 19, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(23, '2026-06-28', 'Instrumento sólido, pequeños problemas de afinación.', 69, 1, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(24, '2026-07-06', 'Muy buena construcción, cómodo de tocar.', 70, 22, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(25, '2026-08-28', 'Instrumento sólido, pequeños problemas de afinación.', 71, 15, '2026-09-14 04:02:42', '2026-09-14 04:02:42');
+(1, '2026-07-16', 'Muy buena construcción, cómodo de tocar.', 47, 1, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(2, '2026-07-09', 'Instrumento sólido, pequeños problemas de afinación.', 48, 27, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(3, '2026-07-08', 'Instrumento sólido, pequeños problemas de afinación.', 49, 4, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(4, '2026-09-06', 'Instrumento sólido, pequeños problemas de afinación.', 50, 6, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(5, '2026-09-12', 'Muy buena construcción, cómodo de tocar.', 51, 8, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(6, '2026-08-28', 'Excelente fabricación, llegó muy bien empacado.', 52, 20, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(7, '2026-08-18', 'Muy buena construcción, cómodo de tocar.', 53, 28, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(8, '2026-09-13', 'Muy buena construcción, cómodo de tocar.', 54, 18, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(9, '2026-07-13', 'Instrumento sólido, pequeños problemas de afinación.', 55, 22, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(10, '2026-07-29', 'Excelente fabricación, llegó muy bien empacado.', 56, 21, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(11, '2026-07-21', 'Buena relación calidad-precio, lo recomiendo.', 57, 29, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(12, '2026-08-09', 'Excelente calidad de sonido, superó mis expectativas.', 58, 14, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(13, '2026-07-31', 'Muy buena construcción, cómodo de tocar.', 59, 29, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(14, '2026-07-23', 'Muy buena construcción, cómodo de tocar.', 60, 28, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(15, '2026-09-04', 'Buena relación calidad-precio, lo recomiendo.', 61, 23, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(16, '2026-06-26', 'Instrumento sólido, pequeños problemas de afinación.', 62, 22, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(17, '2026-08-07', 'Excelente fabricación, llegó muy bien empacado.', 63, 10, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(18, '2026-08-09', 'Muy buena construcción, cómodo de tocar.', 64, 19, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(19, '2026-06-21', 'Excelente fabricación, llegó muy bien empacado.', 65, 2, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(20, '2026-08-24', 'Buena relación calidad-precio, lo recomiendo.', 66, 29, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(21, '2026-06-25', 'Muy buena construcción, cómodo de tocar.', 67, 2, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(22, '2026-08-13', 'Muy buena construcción, cómodo de tocar.', 68, 1, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(23, '2026-08-29', 'Excelente fabricación, llegó muy bien empacado.', 69, 28, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(24, '2026-08-24', 'El tono es increíble, perfecto para presentaciones en vivo.', 70, 8, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(25, '2026-06-25', 'El tono es increíble, perfecto para presentaciones en vivo.', 71, 9, '2026-09-14 07:26:11', '2026-09-14 07:26:11');
 
 -- --------------------------------------------------------
 
@@ -403,7 +390,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('9nIAvzNw1BSSrMhFklJI5vWC5d728UTVURmeEe1l', 72, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.2 Safari/605.1.15', 'eyJfdG9rZW4iOiJXajdJbXZNQnFTSEpCSnR1WFVaWndsRVZGV0FSckNmcXdVNVNCcDI5IiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAwXC9pbnN0cnVtZW50c1wvMjEiLCJyb3V0ZSI6Imluc3RydW1lbnQuc2hvdyJ9LCJfZmxhc2giOnsib2xkIjpbXSwibmV3IjpbXX0sImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjo3Mn0=', 1789340730);
+('etFBioE71pYAkFkpzoWdCsFRcv2bIYvjWwxF1sUa', 1, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.2 Safari/605.1.15', 'eyJfdG9rZW4iOiJJZXFKSkRDWnU3U21CQUU0MXRMTHJhZWp0dWtYaXdZTTBTbHNJbkNBIiwidXJsIjpbXSwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAwIiwicm91dGUiOiJob21lLmluZGV4In0sIl9mbGFzaCI6eyJvbGQiOltdLCJuZXciOltdfSwibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiOjEsImF1dGgiOnsicGFzc3dvcmRfY29uZmlybWVkX2F0IjoxNzg5MzUzMTY1fX0=', 1789355537);
 
 -- --------------------------------------------------------
 
@@ -430,78 +417,77 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `phone`, `address`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@ejemplo.com', NULL, '$2y$12$4klvKjKSgXXF83E2vauDN.7xH/s6Zcn3LSqas0j1eajNn7G7LpK3.', '300000000', 'Calle 1 # 2', 'admin', NULL, '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(2, 'London Johnston', 'jerel.gusikowski@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3324471336', '697 Lauren Divide Suite 499\nEast Helena, LA 86137-3105', 'admin', '2akoFvXkub', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(3, 'Dr. Makenna Weimann', 'jonas.zboncak@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3829451785', '2354 Thompson Isle\nNorth Altafurt, FL 95830', 'user', 'NrV1F27ClE', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(4, 'Aric Lebsack', 'mallie32@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3418636639', '628 Afton Grove Suite 220\nBeryltown, OK 34050-3318', 'user', 'j9DRHLhNKK', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(5, 'Gabe Marks', 'aliya.dibbert@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3692158638', '2646 Fannie Vista Apt. 030\nDorcasside, WI 39462-8430', 'admin', 'sEAfDmwMNa', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(6, 'Kenton Ebert', 'gberge@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3852508849', '801 Gerhold Route\nRubenhaven, AK 66060', 'user', 'sFkSdx4m0W', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(7, 'Raquel Dibbert', 'green.emely@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3467369874', '1870 Kuphal Heights Apt. 821\nMayaberg, VA 07898', 'user', '8kBDQAXicr', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(8, 'Meredith Hickle', 'lulu.mayer@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3761732194', '45614 Fae Shoal\nNorth Minervafurt, MD 58990-4251', 'admin', 'NfjSYWAcRU', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(9, 'Dr. Raphael Fritsch', 'jewel93@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3540522996', '1930 Funk Parkway\nSouth Nestorside, ID 15095-9826', 'user', 'lbnlecsytI', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(10, 'Dr. Giovanni Kulas III', 'kertzmann.wendell@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3212198180', '37547 Danial Villages Suite 066\nLake Dave, OK 15977', 'admin', 'KUqcQnxTbK', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(11, 'Danika Witting', 'gibson.teagan@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3311039424', '872 Florian Shoal Apt. 347\nLake Lloydland, DC 76368', 'user', 'K7fyZ734Ax', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(12, 'Vivianne Johnston', 'theresa.lockman@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3262013304', '6503 Blanche Landing\nCoryview, ME 05907-0519', 'user', 'ksv0r0kiVg', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(13, 'Dr. Elvera Berge IV', 'caroline.wiza@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3930548487', '409 Paucek Mountain Suite 868\nDeliashire, ND 68392', 'admin', 'IybMVMS4pj', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(14, 'Kendra McGlynn', 'ethyl62@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3921450049', '1638 Kautzer River Apt. 135\nLangborough, AZ 02769', 'user', '1lpQDWd56v', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(15, 'Misael Yost Sr.', 'oreichert@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3972248235', '536 Nico Station Apt. 190\nHintzfort, VT 74923', 'user', 'GetUQFZaRP', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(16, 'Dr. Gust Bins', 'brittany.greenfelder@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3402676437', '54695 Fay Rapids Apt. 865\nPort Evans, IN 80469-8596', 'user', 'HSZxi0YwLT', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(17, 'Clay Wuckert', 'rmarquardt@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3644849982', '492 Bailey Loaf\nSouth Arvid, AK 31242-2722', 'user', '899QtU5en9', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(18, 'Prof. Gabe Wunsch MD', 'ryley18@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3059241946', '764 Aubrey Fields\nShyanneberg, AZ 31482', 'admin', 'kQCA1rCR4C', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(19, 'Prof. Hal Prosacco V', 'alfredo.reinger@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3255815400', '3885 Vida Mall Suite 296\nNorth Bridgetteborough, NE 38257', 'user', 't9dD0HcdBr', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(20, 'Ms. Delfina Quitzon', 'brown.keshaun@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3426450632', '977 Raina Hill Apt. 816\nPricefort, OH 11769-6757', 'user', 'QZEWZh14xR', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(21, 'Clotilde Treutel', 'hubert81@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3074313725', '68515 Macejkovic Bridge Suite 739\nWalshshire, MN 42982', 'user', 'fCbrcEUWIY', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(22, 'Braxton Brekke V', 'xhegmann@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3426928629', '4649 Hagenes Isle Apt. 292\nPinkieburgh, MA 18851', 'user', 'yfNXFXaTMm', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(23, 'Miss Elnora Gleason', 'jacobs.katarina@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3039992838', '79336 Grady Square Suite 991\nHagenesmouth, WA 90011', 'user', 'pTIFGWP9QB', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(24, 'Mr. Cruz Wintheiser', 'rosalyn.gusikowski@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3327087065', '6801 Bogisich Freeway Suite 108\nSouth Abdullahport, FL 17663-8498', 'user', 'HM8WfoT0Sg', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(25, 'Fredrick Lakin Sr.', 'darwin.boyer@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3605577143', '6638 Nikolaus Station Suite 818\nO\'Connerchester, PA 57722-1148', 'admin', 'y5OaoDGzFy', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(26, 'Dr. Dawn Heidenreich', 'christiansen.kimberly@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3623004745', '373 Mayert Viaduct\nEast Angela, KY 24586', 'user', '013uvePNbh', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(27, 'Kris Watsica Jr.', 'katlynn82@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3784798395', '37584 Rosina Bypass Apt. 148\nNew Ebbaburgh, NJ 07619-6264', 'user', 'PzcfM6ipsn', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(28, 'Patricia Kshlerin', 'wwehner@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3953439382', '3472 Meredith Cliffs Suite 467\nAlessandraport, SD 32878', 'admin', 'GLqveFQg6L', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(29, 'Casey Rippin MD', 'price.witting@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3712718852', '87539 Kunze Green Suite 599\nHerzogville, WI 30834', 'user', '9TNiHoV1nf', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(30, 'Deontae McLaughlin', 'grady.meagan@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3329289131', '1109 Helga Rue\nNorth Newtonfort, MI 26927', 'user', '2WyCDkKzsE', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(31, 'Kelly Schowalter PhD', 'larkin.nicholaus@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3227184760', '169 Emery Turnpike Suite 392\nAnnamarieview, KY 03948-8206', 'admin', 'BpN4UpOYUp', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(32, 'Taryn Rolfson', 'maud96@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3936672192', '128 Darrion Well Suite 361\nWuckertchester, AK 12697-7786', 'user', 'mXOQZO8hv2', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(33, 'Nikita Davis PhD', 'nbrekke@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3813011894', '987 Trey Lodge Apt. 893\nRosendoshire, KY 70292', 'admin', 'XXq2CEJezr', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(34, 'Okey Jakubowski IV', 'kunde.geovanny@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3840901349', '75953 Jones Junctions\nWest Kraigbury, LA 22898', 'user', '1cVTlPZOir', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(35, 'Bernhard Rowe', 'lmoen@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3408813400', '145 Alvis Dale\nFloyview, IL 45856', 'admin', 'ncaG9Rg3Gy', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(36, 'Mr. Leo Collier PhD', 'victoria.hettinger@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3734678700', '64277 Hermiston Locks Suite 357\nNew Ashley, IN 75477', 'user', 'rbqCt5kBku', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(37, 'Zula Ritchie', 'beulah.koepp@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3864038167', '62749 O\'Conner Brook Apt. 709\nKalitown, RI 54950', 'user', 'aZMW5sJwSa', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(38, 'Mrs. Marisa Hills DVM', 'beau.harris@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3552069174', '34587 Samanta Tunnel\nSouth Paulview, NH 48927-3061', 'user', '8Ya66DMrie', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(39, 'Adam Doyle', 'fjones@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3636247696', '84178 Padberg Lodge Apt. 467\nNew Haleigh, AZ 10233', 'user', 'y5xqZh9r3y', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(40, 'Allene Bernier', 'vilma.zulauf@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3150455062', '268 Effertz Harbors\nMurphymouth, WY 05263-6019', 'user', 'YIDwBR7Lc2', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(41, 'Jakayla Maggio', 'beer.raul@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3234391635', '948 Taurean Court Suite 677\nJodieborough, NJ 11685-2892', 'user', 'fLbcmKrnyX', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(42, 'Mrs. Theodora Herzog DVM', 'hellen.stanton@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3605099964', '120 Nicolas Drive Apt. 762\nPort Cecile, WV 15144', 'user', 'uwsI1u57gn', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(43, 'Dr. Sammy Skiles', 'ybrown@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3861266325', '17852 Macejkovic Wells Apt. 019\nWest Jewel, AR 11272-7507', 'admin', '6M8bSqolOS', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(44, 'Tanner Will', 'karelle34@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3857471202', '9106 Stanton Overpass Apt. 690\nReingerport, CT 29647-8496', 'user', '8c5Fa8RcI7', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(45, 'Miss Marlene Bartell Sr.', 'beryl86@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3372757081', '181 Shanahan Spurs Apt. 042\nLake Erik, AL 92025-4187', 'user', 'o3rJoCxoUC', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(46, 'Adella Smitham', 'xruecker@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3479845759', '6649 Watsica Springs\nMilotown, ID 37005-5510', 'admin', 'giWSbXXFA8', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(47, 'June Mayer', 'henderson.brown@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3501307699', '153 Maya Cove Apt. 007\nSouth Cleo, HI 85901', 'user', 'zMzbR6Cn9I', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(48, 'Dr. Dejuan Murazik I', 'qmayert@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3209541080', '74988 Raymond Trail\nJohnstonbury, IL 64422', 'user', 'EKogofulsR', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(49, 'Mr. Luciano Smith', 'osborne58@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3579779313', '60733 Feil Islands\nDavonteshire, MO 07235-6047', 'user', 'Dckt5aa8V4', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(50, 'Mariam Toy DDS', 'aurelia.schroeder@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3385880161', '5218 Hermina Ville Suite 241\nEast Eldoraberg, UT 77147-0390', 'admin', 'i63jdLl94y', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(51, 'Desiree Robel III', 'maurine.wolf@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3248378313', '6029 McCullough Road Suite 901\nHalport, DC 61094', 'user', 'LLiHVdmPWO', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(52, 'Oscar Rogahn Jr.', 'jamarcus.hermiston@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3316240291', '740 Ortiz Freeway Apt. 262\nWest Alfred, MD 23019', 'admin', 'Xbw1ROlSXQ', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(53, 'Tristian Rice', 'schulist.ronaldo@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3827127295', '674 Hoyt Drive\nElouisefort, CO 04030-3486', 'admin', '6YPPiSpcEB', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(54, 'Tabitha Baumbach', 'jschoen@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3786091944', '858 Gleason Camp Suite 040\nPort Maynardview, AK 13214-5829', 'admin', 'RtYZznt13m', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(55, 'Cullen Collier', 'wyman.jayce@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3447417710', '72758 Wisozk Overpass Apt. 403\nNorth Clark, CT 49334-4102', 'admin', '7kzLPmYOwG', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(56, 'Dr. Gustave Turcotte', 'emiliano.damore@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3505007361', '332 DuBuque Crossroad\nWest Angelinetown, CA 64525-1978', 'admin', 'Q0J5ZX2zOS', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(57, 'Ludwig Bednar', 'charley.thompson@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3871127163', '162 Arielle Well Suite 456\nHerzogstad, UT 94826', 'user', 'W3uYL0VOfT', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(58, 'Braeden Kilback', 'boyle.velma@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3102607808', '4400 Zulauf Avenue Apt. 007\nOrtizbury, AK 79305-9145', 'user', 'J4S0bhHcx8', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(59, 'Prof. Elissa Sauer IV', 'timmy01@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3020470508', '4750 Grimes Landing\nTurcottechester, OR 38007', 'user', 'yElli6s8Dr', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(60, 'Antonina Quitzon', 'franecki.zachery@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3917661571', '200 Upton Track Apt. 258\nEast Dolly, DE 63988', 'user', '0xsWDjUR5G', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(61, 'Dr. Verlie Sporer', 'cummings.maci@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3963119974', '616 Elroy Island\nBinshaven, CT 12779', 'user', '8NK4ARJeUn', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(62, 'Blaise Green PhD', 'gretchen.rolfson@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3948150486', '55041 Noel Lodge Suite 172\nRosenbaumville, FL 02812-5473', 'admin', '6UhuPpbmot', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(63, 'Bernadine Frami', 'fae03@example.net', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3947864700', '870 Milford Oval Suite 538\nGradyport, OH 22826', 'user', 'm2rv2eLhqv', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(64, 'Gabe Flatley', 'nyasia.wisozk@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3101366047', '412 Yasmin Track Suite 249\nErdmanhaven, IN 94800', 'admin', 'a7tce0Q05E', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(65, 'Wilton Pouros', 'jessie.stroman@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3968845402', '3923 Queenie Wall Suite 783\nNew Juanitaton, AZ 70156', 'user', '8TesmiNXnK', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(66, 'Prof. Beaulah Senger Sr.', 'cleo90@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3308439286', '74699 Cielo Villages\nNelsbury, IA 18300', 'user', '1aOaXZiHWR', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(67, 'Prof. Bradford Harvey DVM', 'mschowalter@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3969488139', '706 Karley Spur\nVonRuedenland, SD 89031', 'user', 'iGJLJxzOnS', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(68, 'Lelah Spencer I', 'sabryna.okuneva@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3044833630', '36410 Runolfsson Throughway\nRaynorfort, OK 29834', 'user', 'p1IUJzFo7W', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(69, 'Caden Harvey', 'janice91@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3937336145', '9977 Raphaelle Viaduct\nMosciskiland, OK 19541', 'user', 'j1P8CxvXmD', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(70, 'Sheila Quigley', 'elton86@example.com', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3561234254', '919 Cormier Mountain\nNovaborough, MO 56676', 'admin', 'tBbNsDeOGo', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(71, 'Keyon Halvorson', 'damore.ebba@example.org', '2026-09-14 04:02:42', '$2y$12$IaT46gj.khia3hnLhCCxvO6A..J3xDbv.xEHV8ZlEeiC9Jo6OtlIS', '3466778479', '9193 Spinka Center Apt. 527\nPenelopeland, MA 10209', 'admin', 'gMCpAdUKCJ', '2026-09-14 04:02:42', '2026-09-14 04:02:42'),
-(72, 'Carlos', 'carlos@gmail.com', NULL, '$2y$12$EyNfO.FihB8eyBtffZGeCersmmgBN51N3rwelrvGwCwewOyq08v8O', '312000000', 'Calle 1', 'user', NULL, '2026-09-14 04:04:56', '2026-09-14 04:04:56');
+(1, 'Admin', 'admin@ejemplo.com', NULL, '$2y$12$uK/FB.kad8dyMG5s85c.IuDZj5lyLExrw.se4r6qcPw20Iy3JGbty', '300000000', 'Calle 1 # 2', 'admin', NULL, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(2, 'Anahi Kemmer Sr.', 'swift.daniella@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3783807049', '702 Gleason Valley\nWest Dexter, NM 27419', 'admin', 'CkxMciKcfG', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(3, 'Layla Reynolds', 'collin95@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3172055095', '222 Christina Lakes Suite 533\nNew Art, AK 63983-5993', 'admin', 'SNJ0eJpXHV', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(4, 'Rosendo Rath', 'nokon@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3391417378', '38137 Ubaldo Prairie\nNew Leon, ND 70711', 'user', '3YhtEmrjp0', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(5, 'Delbert Corkery', 'pinkie.emmerich@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3188517239', '1332 Deckow Turnpike Suite 146\nShanahanberg, ND 64439', 'user', 'PLhLP4b8Ng', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(6, 'Dr. Drew Feest DVM', 'quitzon.lamar@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3576222739', '86922 Lebsack Landing Suite 045\nNienowport, TX 28802-9809', 'admin', 'hyHjuutHvp', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(7, 'Wanda Leannon', 'warren.pfeffer@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3386285987', '740 D\'angelo Glens Apt. 269\nWalterview, TN 65556-4941', 'user', 'FqCzrNwQ8V', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(8, 'Burdette Kreiger', 'feest.carlotta@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3149594244', '9194 Camylle Walk\nEdwardoside, AL 32038-3118', 'user', '2z6sJlG5aq', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(9, 'Maggie Ferry', 'pinkie46@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3471119997', '838 Deckow Green\nSouth Sarinastad, OK 67145-9696', 'user', 'WK9eSBNYqN', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(10, 'Mr. Jimmie Green Sr.', 'anastasia55@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3688041266', '7016 Marquardt Stravenue\nRempelshire, MO 58405', 'user', 'EpaSVCrS06', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(11, 'Marcus O\'Conner', 'wellington53@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3479370760', '308 Renner Ville\nAdrielstad, NE 61453-4251', 'admin', 'M3dNC03jx1', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(12, 'Mackenzie Gibson', 'hpaucek@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3945535958', '906 Muller Meadows Suite 597\nPort Litzyview, RI 71198', 'user', 'ZQZ9rfDOce', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(13, 'Ms. Sydni Lemke', 'melisa29@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3195402743', '814 Shaun Estates\nSouth Esteban, FL 45433', 'user', '5mJMpNkMOp', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(14, 'Prof. Jerod Ondricka', 'dschiller@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3543817256', '573 Graham Forest Apt. 229\nSouth Skyla, TX 77378-9623', 'user', 'arxg0SMccv', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(15, 'Prof. Ken Cole MD', 'bergnaum.verdie@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3932863767', '494 Louisa Bridge Suite 581\nTerrilltown, DE 47108', 'user', '9vDAyRM9C6', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(16, 'Miller Kuhlman', 'beverly.dickens@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3236898927', '7638 Rogahn Port\nJonesfurt, SC 67656', 'user', 'UEihpjzDZI', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(17, 'Kayley Corkery', 'sigrid.medhurst@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3207968184', '824 Thaddeus Forges Suite 321\nIsobelshire, OK 16300-9551', 'user', '6225ynecaY', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(18, 'Mrs. Suzanne Becker', 'alfreda.kutch@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3622367570', '26681 Nola Unions\nNicoleshire, HI 29714', 'user', 'MaVI0F8jv0', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(19, 'Sid Orn', 'ybruen@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3567443511', '884 Schiller Forest\nSouth Rubyland, MD 19879', 'user', '5qMI0wFLl6', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(20, 'Ned Sipes', 'tremblay.alivia@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3845118801', '752 Natalie Glens\nKertzmannburgh, IN 15309', 'user', '1BG8FiAhbe', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(21, 'Emmet Kassulke III', 'ushields@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3116698603', '93160 Stokes Groves Suite 186\nRiverville, NH 52044', 'user', 'PjBcwPSWot', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(22, 'Sedrick Goyette', 'jhand@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3676803735', '294 Fisher Mills\nDimitrimouth, NH 33765', 'admin', '60okYrGvGj', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(23, 'Trace Weber', 'fheathcote@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3261185337', '2601 Bert Spurs\nLottieburgh, DE 81620', 'user', 'ul3XkJnrKP', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(24, 'Fidel Mante Jr.', 'herzog.thora@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3418687559', '33452 Tillman Trail Apt. 016\nSouth Billie, CT 05120-3125', 'admin', 'RTnFwPXhFB', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(25, 'Kassandra Howe I', 'ruth.maggio@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3294394176', '1414 Breanne Corner\nSouth Jaylinbury, AL 34572', 'user', 'tqXqHVKskJ', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(26, 'Ms. Bridget Hane PhD', 'kuhic.rolando@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3834042561', '6380 Nolan Ramp\nHauckfort, SD 50751', 'admin', 'sIy9phWk8h', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(27, 'Dr. Natalie Heathcote', 'reinger.earlene@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3131128445', '661 Jayne Forges\nLake Elaina, ID 56723', 'admin', '79rGK5loTt', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(28, 'Gino Koch', 'emmerich.harmony@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3865944752', '38071 Dolores Crossing Apt. 427\nNorth Urielberg, AR 21243-0090', 'user', 'IMJAPf8zKp', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(29, 'Reanna Hamill', 'ukunde@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3628582068', '6725 Reymundo Stream Apt. 626\nSouth Delfina, VT 64014', 'user', '9XXxj8t0Pa', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(30, 'Mohammed Hamill', 'rosenbaum.santos@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3794701941', '69995 Delfina Mews Apt. 353\nFriedrichberg, WA 82370', 'user', 'LdLAF9ZYHE', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(31, 'Frankie Rath', 'qadams@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3058093104', '2202 Darby Bridge Suite 696\nLlewellynmouth, HI 69252', 'user', '2K8BULpwxC', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(32, 'Mabel Stehr', 'schuppe.hillary@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3705661723', '93349 Lemke Crossing\nSouth Rowanstad, VT 55696', 'user', '615ScRGcqL', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(33, 'Savion Corwin', 'cecil65@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3813874596', '72081 Moen Key\nMadisynmouth, VA 91555-8002', 'user', 'DhkhsXKdZW', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(34, 'Deanna Marks', 'raoul.morar@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3681892054', '3030 Thad Neck\nPort Lola, CT 59557-9536', 'admin', 'DFf1eOrHGZ', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(35, 'Mrs. Bulah Considine', 'kitty.lehner@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3670041472', '980 Breitenberg Via Apt. 323\nLake Shayleefort, NH 12887', 'user', 'DsqxINiV6l', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(36, 'Mrs. Nayeli Terry', 'mjones@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3429751756', '6699 Candido Viaduct Suite 201\nWest Sterling, FL 59115', 'user', '2Cl1jJBtn7', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(37, 'Kimberly Bernier', 'juvenal31@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3483049565', '2787 Aufderhar Unions\nWest Amirport, NH 14641-1171', 'admin', 'HFnQnm3XsK', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(38, 'Yolanda Conn DDS', 'skling@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3854442965', '19879 Jena Locks\nFernandoton, MT 63240-3092', 'admin', 'snwNLAvTsH', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(39, 'Ed Sawayn', 'cornelius.keeling@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3678411540', '48547 Rowena Plaza\nEast Lorenzobury, AZ 78411-5599', 'user', '1dHz9gDA6O', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(40, 'Karine Cartwright', 'dooley.hortense@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3162029147', '6387 Andy Flat Apt. 155\nLake Janis, CA 99986-0631', 'admin', 'PFEoyhO8wV', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(41, 'Chadd Larson', 'modesta.gerhold@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3561472887', '734 Jonathon Forks Apt. 065\nPort Allyfort, DE 63244-5545', 'user', 'XcLfXmk0p5', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(42, 'Schuyler Cassin V', 'ortiz.florine@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3089537462', '5834 Zetta Terrace\nNew Maidaside, NC 12232', 'user', '8RKkvIEZta', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(43, 'Colleen Feest', 'robbie99@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3115910219', '8101 Mosciski Circles\nEast Sarah, OR 55865', 'user', 'yfaygLbbqu', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(44, 'Prof. Efrain Spinka', 'oswaldo94@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3523668784', '69559 Jacobi Flat Suite 324\nWest Bernadette, GA 64945-6512', 'user', 'XM2My7AKjv', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(45, 'Shaniya Dach II', 'crooks.khalid@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3866385240', '794 Cydney Trail Suite 973\nThielland, DC 27226', 'user', '3lWQc2ydbH', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(46, 'Caroline Sporer Jr.', 'hcronin@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3692672272', '2486 Ellie Gardens Apt. 740\nLake Dortha, HI 93695', 'admin', 'l5dTJCuqPO', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(47, 'Prof. Idell Muller', 'pmedhurst@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3802609846', '87608 Schulist Bypass Suite 300\nConsuelostad, NV 17423', 'user', '5uO28acXoU', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(48, 'Mariam Durgan', 'maximillian74@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3188365528', '12746 Heller Squares Suite 515\nRylanbury, IL 01481-8481', 'admin', 'dcaartO7F8', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(49, 'Prof. Santino Dickinson V', 'streich.elfrieda@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3082430946', '392 McKenzie Bridge Apt. 078\nBurdettehaven, WY 64646', 'user', '0kKqCcJgXW', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(50, 'Prof. Abbie Green', 'morar.katheryn@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3880395017', '8730 Mertz Islands Apt. 200\nNicolaschester, ND 46394', 'user', 'W9hU20VA8j', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(51, 'Felicia Torphy II', 'grady66@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3091904452', '646 Ramona Land Suite 259\nLake Clintport, NY 03607-7051', 'user', 'VReNY81hTd', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(52, 'Stephanie Wiza', 'lmoore@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3314693163', '669 Jovan Circle\nNorth Orionchester, CA 59984', 'user', 'nlHAfBsiiA', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(53, 'Gwen Stark', 'kozey.anastacio@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3256099637', '5716 Jorge Track Apt. 988\nNew Judson, OR 91300-4564', 'admin', 'ACAOkEjzgP', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(54, 'Shanelle Harris', 'dickinson.bernie@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3180169291', '6005 Libbie Mews Suite 993\nHowardland, AL 10954', 'user', 'eqbAFdeVVn', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(55, 'Rahul Gusikowski DVM', 'walsh.ila@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3893599854', '2890 Lowe Shores\nSouth Joelmouth, KS 52039-5895', 'admin', '65mqFTl7HT', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(56, 'Noble Okuneva', 'daryl.lehner@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3111558889', '442 Parisian Inlet Apt. 258\nEdwinberg, ME 34124', 'user', 'wo80ff69zQ', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(57, 'Rosina Brown', 'hhahn@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3392165692', '840 Sporer Fall Suite 457\nShieldstown, AL 80323-1682', 'user', 'kF8lxTJDNw', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(58, 'Dr. Eusebio Wyman', 'candida63@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3970658149', '996 Drake Island Apt. 958\nWintheiserland, OR 17247', 'user', '8UDrutSBRi', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(59, 'Emile Corwin PhD', 'allen.schowalter@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3537564690', '885 Lambert Club\nBergstromshire, TX 63975-6390', 'user', 'Uj9bqVYj9t', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(60, 'Mr. Mauricio Orn III', 'thelma02@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3556967827', '7866 Senger Gardens Suite 791\nNorth Myriamborough, UT 99706', 'admin', 'tPrjf9Q4pU', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(61, 'Scottie Blanda', 'kdietrich@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3450662994', '1495 Rowena Harbors\nGiovannifort, SC 40382-7433', 'user', '5PYU6Qc4hw', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(62, 'Hillard Kub', 'georgiana24@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3000402246', '478 Jennifer Drive\nLake Fae, ID 94242', 'user', 'd5WGgtRRvw', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(63, 'Dr. Delbert Reynolds Jr.', 'zwiegand@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3413736332', '31203 Nils Drive Suite 708\nLake Gertrude, IA 82896', 'user', 'kqSVX58V5J', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(64, 'Demarcus Kozey', 'glover.javon@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3649437852', '219 Romaguera Ports Suite 545\nNorth Zackary, GA 17514', 'admin', 'MIQT4zHZtU', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(65, 'Rhianna Funk', 'alford31@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3035470849', '9059 Hortense Fall\nVidaview, NY 46802-6901', 'user', 'YX6MslgSZW', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(66, 'Mr. Jeff DuBuque', 'spencer.magali@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3112370739', '3043 Ankunding Brook\nLeaton, WY 00214', 'admin', 'TKv20NFnfa', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(67, 'Jarvis Kovacek V', 'golden34@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3172471317', '5515 Lila Field Apt. 939\nCleoratown, WY 30246', 'admin', 'dYk5cK5mun', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(68, 'Adrian Cummings', 'vkuhic@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3003764728', '685 Ritchie Field\nEast Evanbury, RI 45105', 'user', 'HVYBgJII5c', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(69, 'Bernard Metz', 'karli.thiel@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3310515138', '70465 Hill Skyway Suite 743\nNannieberg, CT 63206-1265', 'user', 'ZQSEtq0eSF', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(70, 'Maybell Becker', 'farrell.ericka@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3046901389', '782 Conroy Stravenue\nEast Matildachester, ID 86146', 'user', 'R6QDXAGsfu', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(71, 'Raheem Hessel', 'zryan@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3406289020', '95087 Rutherford Mews\nEast Ryderstad, CT 40175-3292', 'admin', '46q0FZ3Zhx', '2026-09-14 07:26:11', '2026-09-14 07:26:11');
 
 --
 -- Índices para tablas volcadas
@@ -626,7 +612,7 @@ ALTER TABLE `instruments`
 -- AUTO_INCREMENT de la tabla `instrument_items`
 --
 ALTER TABLE `instrument_items`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `jobs`
@@ -644,13 +630,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `reviews`
@@ -662,7 +648,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- Restricciones para tablas volcadas
