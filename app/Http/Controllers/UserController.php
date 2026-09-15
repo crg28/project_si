@@ -21,6 +21,6 @@ class UserController extends Controller
         $viewData['user'] = $user;
         $viewData['payments'] = $payments;
 
-        return view('user.detail')->with('viewData', $viewData);
+        return view('user.detail', $viewData);
     }
 }
