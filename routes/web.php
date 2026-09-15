@@ -12,29 +12,17 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 // Authors: Juan Cortes & Carlos Restrepo
-
-// Login routes
+// Authentication routes
 Auth::routes();
 
 // Home route
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-// Instruments routes
+// Instrument routes
 Route::get('/instruments', [InstrumentController::class, 'index'])->name('instrument.index');
 Route::get('/instruments/top-selling', [InstrumentController::class, 'topSelling'])->name('instrument.topSelling');
 Route::get('/instruments/most-reviewed', [InstrumentController::class, 'mostReviewed'])->name('instrument.mostReviewed');
 Route::get('/instruments/{id}', [InstrumentController::class, 'show'])->name('instrument.show');
-
-// User Routes
-Route::get('/user/detail/{id}', [UserController::class, 'detail'])->name('user.detail');
-
-// Payment Routes
-Route::middleware('auth')->group(function () 
-{
-    Route::get('/payments/create', [PaymentController::class, 'create'])->name('payment.create');
-    Route::post('/payments', [PaymentController::class, 'store'])->name('payment.store');
-    Route::delete('/payments/{id}', [PaymentController::class, 'destroy'])->name('payment.destroy');
-});
 
 // Cart routes
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -42,13 +30,28 @@ Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
 Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/cart/checkout', [CartController::class, 'checkout'])->middleware('auth')->name('cart.checkout');
 
-// Order routes
-Route::get('/orders/{id}', [OrderController::class, 'show'])->middleware('auth')->name('order.show');
-Route::get('/orders/{id}/pdf', [OrderController::class, 'downloadPdf'])->middleware('auth')->name('order.downloadPdf');
+// User routes
+Route::middleware('auth')->group(function () {
+
+    // User detail route
+    Route::get('/user/detail', [UserController::class, 'detail'])->name('user.detail');
+
+    // Payment routes
+    Route::get('/payments/create', [PaymentController::class, 'create'])->name('payment.create');
+    Route::post('/payments', [PaymentController::class, 'store'])->name('payment.store');
+    Route::delete('/payments/{id}', [PaymentController::class, 'destroy'])->name('payment.destroy');
+
+    // Order routes
+    Route::get('/orders/{id}', [OrderController::class, 'show'])->name('order.show');
+    Route::get('/orders/{id}/pdf', [OrderController::class, 'downloadPdf'])->name('order.downloadPdf');
+});
 
 // Admin routes
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function ()
 {
+    // Dashboard routes
+    Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+
     // Dashboard routes
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
 

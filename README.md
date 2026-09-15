@@ -1,58 +1,135 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 440 — Tienda de Instrumentos Musicales
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Cómo ejecutar el programa
 
-## About Laravel
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/crg28/project_si.git
+   cd project_si
+   ```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+2. Instalar dependencias de PHP:
+   ```bash
+   composer install
+   ```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+3. Instalar dependencias de JavaScript:
+   ```bash
+   npm install
+   ```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+4. Copiar el archivo de entorno y generar la clave de la aplicación:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-## Learning Laravel
+5. Configurar la base de datos en el archivo `.env`:
+   ```
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=8889
+   DB_DATABASE=proyecto
+   DB_USERNAME=root
+   DB_PASSWORD=root
+   APP_LOCALE=es
+   APP_NAME="440"
+   ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+6. Crear la base de datos vacía en MySQL/phpMyAdmin con el nombre configurado en `DB_DATABASE`.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+7. Ejecutar las migraciones y poblar la base de datos con datos de ejemplo:
+   ```bash
+   php artisan migrate:fresh --seed
+   ```
+   Alternativamente, en el repositorio también se incluye una copia de la base de datos ya poblada (`database/sql_export/proyecto.sql`), por si se prefiere importarla directamente en phpMyAdmin en lugar de generar los datos con el seeder.
+   
+8. Crear el enlace simbólico de almacenamiento (necesario para las imágenes de los instrumentos):
+   ```bash
+   php artisan storage:link
+   ```
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+9. Compilar los assets de frontend:
+   ```bash
+   npm run build
+   ```
 
-## Agentic Development
+10. Iniciar el servidor:
+    ```bash
+    php artisan serve
+    ```
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+11. Abrir el navegador en `http://127.0.0.1:8000`.
 
-```bash
-composer require laravel/boost --dev
+**Usuario administrador de prueba** (creado por el seeder):
+- Email: `admin@ejemplo.com`
+- Contraseña: `contraseña`
 
-php artisan boost:install
+**Idioma:** la aplicación está configurada en español (`APP_LOCALE=es`). Todos los textos de la interfaz se gestionan a través del sistema de traducciones de Laravel (`resources/lang/es/messages.php`).
+
+## Ruta principal
+
+```
+GET /
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Muestra la página de bienvenida de la tienda. Desde la barra de navegación se accede al resto de la aplicación.
 
-## Contributing
+## Descripción de todas las rutas
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Autenticación
 
-## Code of Conduct
+| Ruta | Método | Descripción |
+|---|---|---|
+| `/login` | GET/POST | Inicio de sesión |
+| `/register` | GET/POST | Registro de un nuevo usuario |
+| `/logout` | POST | Cierre de sesión |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Instrumentos (público)
 
-## Security Vulnerabilities
+| Ruta | Método | Nombre | Descripción |
+|---|---|---|---|
+| `/instruments` | GET | `instrument.index` | Catálogo con búsqueda por nombre y filtro por categoría |
+| `/instruments/top-selling` | GET | `instrument.topSelling` | Top 3 instrumentos más vendidos |
+| `/instruments/most-reviewed` | GET | `instrument.mostReviewed` | Top 4 instrumentos más comentados |
+| `/instruments/{id}` | GET | `instrument.show` | Detalle de un instrumento y sus reseñas |
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Carrito
 
-## License
+| Ruta | Método | Nombre | Descripción |
+|---|---|---|---|
+| `/cart` | GET | `cart.index` | Ver contenido del carrito |
+| `/cart/add/{id}` | POST | `cart.add` | Agregar un instrumento al carrito |
+| `/cart/remove/{id}` | DELETE | `cart.remove` | Quitar un instrumento del carrito |
+| `/cart/checkout` | POST | `cart.checkout` | Confirmar la compra (requiere sesión iniciada) |
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Usuario, pagos y pedidos (requieren sesión iniciada)
+
+| Ruta | Método | Nombre | Descripción |
+|---|---|---|---|
+| `/user/detail` | GET | `user.detail` | Perfil del usuario autenticado |
+| `/payments/create` | GET | `payment.create` | Formulario para agregar un método de pago |
+| `/payments` | POST | `payment.store` | Guardar un nuevo método de pago |
+| `/payments/{id}` | DELETE | `payment.destroy` | Eliminar un método de pago propio |
+| `/orders/{id}` | GET | `order.show` | Detalle de un pedido |
+| `/orders/{id}/pdf` | GET | `order.downloadPdf` | Descargar la factura del pedido en PDF |
+
+### Administración (requieren sesión iniciada con rol `admin`)
+
+| Ruta | Método | Nombre | Descripción |
+|---|---|---|---|
+| `/admin` | GET | `admin.dashboard` | Panel principal con estadísticas |
+| `/admin/instruments` | GET | `admin.instrument.index` | Listado de instrumentos |
+| `/admin/instruments/create` | GET | `admin.instrument.create` | Formulario para crear un instrumento |
+| `/admin/instruments` | POST | `admin.instrument.store` | Guardar un nuevo instrumento |
+| `/admin/instruments/{id}` | GET | `admin.instrument.show` | Detalle de un instrumento |
+| `/admin/instruments/{id}/edit` | GET | `admin.instrument.edit` | Formulario para editar un instrumento |
+| `/admin/instruments/{id}` | PUT | `admin.instrument.update` | Actualizar un instrumento |
+| `/admin/instruments/{id}` | DELETE | `admin.instrument.destroy` | Eliminar un instrumento |
+| `/admin/users` | GET | `admin.user.index` | Listado de usuarios |
+| `/admin/users/create` | GET | `admin.user.create` | Formulario para crear un usuario |
+| `/admin/users` | POST | `admin.user.store` | Guardar un nuevo usuario |
+| `/admin/users/{id}` | GET | `admin.user.show` | Detalle de un usuario |
+| `/admin/users/{id}/edit` | GET | `admin.user.edit` | Formulario para editar un usuario |
+| `/admin/users/{id}` | PUT | `admin.user.update` | Actualizar un usuario |
+| `/admin/users/{id}` | DELETE | `admin.user.destroy` | Eliminar un usuario |

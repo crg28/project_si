@@ -29,7 +29,7 @@ class PaymentController extends Controller
         $payment->setOrderId(null);
         $payment->save();
 
-        return redirect()->route('user.detail', auth()->id())
+        return redirect()->route('user.detail')
             ->with('success', __('messages.payment_added'));
     }
 
@@ -42,7 +42,7 @@ class PaymentController extends Controller
 
         $payment->delete();
 
-        return redirect()->route('user.detail', auth()->id())
+        return redirect()->route('user.detail')
             ->with('success', __('messages.payment_removed'));
     }
 }

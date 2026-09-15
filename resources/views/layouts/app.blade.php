@@ -67,7 +67,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('user.detail', ['id' => Auth::user()->id]) }}">
+                                    <a class="dropdown-item" href="{{ route('user.detail') }}">
                                         {{ __('messages.view_details') }}
                                     </a>
 

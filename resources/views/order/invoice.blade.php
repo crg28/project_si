@@ -13,6 +13,12 @@
     <p><strong>{{ __('messages.order') }}:</strong> #{{ $order->getId() }}</p>
     <p><strong>{{ __('messages.order_date') }}:</strong> {{ $order->getDate() }}</p>
 
+    <hr>
+
+    <p><strong>{{ __('messages.name') }}:</strong> {{ $user->getName() }}</p>
+    <p><strong>{{ __('messages.address') }}:</strong> {{ $user->getAddress() }}</p>
+    <p><strong>{{ __('messages.phone') }}:</strong> {{ $user->getPhone() }}</p>
+
     <table>
         <thead>
             <tr>
