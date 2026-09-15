@@ -7,12 +7,12 @@
             <div class="card">
                 <div class="card-header">{{ __('messages.user_detail') }}</div>
                 <div class="card-body">
-                    <input type="text" class="form-control mb-2" value="{{ $viewData['user']->getName() }}" readonly>
-                    <input type="text" class="form-control mb-2" value="{{ $viewData['user']->getEmail() }}" readonly>
-                    <input type="text" class="form-control mb-2" value="{{ $viewData['user']->getAddress() }}" readonly>
-                    <input type="text" class="form-control mb-2" value="{{ $viewData['user']->getPhone() }}" readonly>
+                    <input type="text" class="form-control mb-2" value="{{ $user->getName() }}" readonly>
+                    <input type="text" class="form-control mb-2" value="{{ $user->getEmail() }}" readonly>
+                    <input type="text" class="form-control mb-2" value="{{ $user->getAddress() }}" readonly>
+                    <input type="text" class="form-control mb-2" value="{{ $user->getPhone() }}" readonly>
 
-                    @if ($viewData['user']->getRole() === 'admin')
+                    @if ($user->getRole() === 'admin')
                         <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-primary mt-2">
                             {{ __('messages.go_to_admin_panel') }}
                         </a>
@@ -27,7 +27,7 @@
             <div class="card mt-4">
                 <div class="card-header">{{ __('messages.payments') }}</div>
                 <div class="card-body">
-                    @forelse ($viewData['payments'] as $payment)
+                    @forelse ($payments as $payment)
                         <div class="d-flex justify-content-between align-items-center border-bottom py-2">
                             <span>{{ __('messages.card_ending_in') }} {{ substr($payment->getCardNumber(), -4) }}</span>
 

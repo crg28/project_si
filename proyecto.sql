@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:8889
--- Tiempo de generación: 14-09-2026 a las 03:16:13
+-- Tiempo de generación: 15-09-2026 a las 03:11:16
 -- Versión del servidor: 8.0.44
 -- Versión de PHP: 8.3.30
 
@@ -84,12 +84,11 @@ CREATE TABLE `instruments` (
 --
 
 INSERT INTO `instruments` (`id`, `name`, `model`, `price`, `stock`, `imagePath`, `category`, `created_at`, `updated_at`) VALUES
-(1, 'Bach Trompeta TR300', 'MOD-2894', 3334.58, 14, 'instruments/icon.jpg', 'Viento', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
-(2, 'Epiphone Casino', 'MOD-3618', 3226.08, 9, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
-(3, 'Gibson Les Paul', 'MOD-6066', 1882.49, 37, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(2, 'Epiphone Casino', 'MOD-3618', 3226.08, 0, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 07:26:11', '2026-09-15 07:50:24'),
+(3, 'Gibson Les Paul', 'MOD-6066', 1882.49, 34, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 07:26:11', '2026-09-15 08:08:19'),
 (4, 'Yamaha P-125', 'MOD-7173', 1277.37, 49, 'instruments/icon.jpg', 'Teclado', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (5, 'Music Man StingRay', 'MOD-4806', 2555.4, 40, 'instruments/icon.jpg', 'Bajo', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
-(6, 'Cordoba C5 Guitarra Clásica', 'MOD-9517', 858.86, 12, 'instruments/icon.jpg', 'Cuerdas', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(6, 'Cordoba C5 Guitarra Clásica', 'MOD-9517', 858.86, 10, 'instruments/icon.jpg', 'Cuerdas', '2026-09-14 07:26:11', '2026-09-15 08:08:19'),
 (7, 'Cremona Viola SV-130', 'MOD-7350', 406.48, 17, 'instruments/icon.jpg', 'Cuerdas', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (8, 'PRS SE Custom 24', 'MOD-5825', 849.18, 35, 'instruments/icon.jpg', 'Guitarra', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (9, 'Stentor Cello Estudiante', 'MOD-8959', 1966.7, 50, 'instruments/icon.jpg', 'Cuerdas', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
@@ -112,7 +111,8 @@ INSERT INTO `instruments` (`id`, `name`, `model`, `price`, `stock`, `imagePath`,
 (26, 'Tama Imperialstar', 'MOD-7883', 2015.91, 21, 'instruments/icon.jpg', 'Batería', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (27, 'DW Performance Series', 'MOD-9822', 1025.39, 48, 'instruments/icon.jpg', 'Batería', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (28, 'Pearl Export Series', 'MOD-4840', 1366.21, 3, 'instruments/icon.jpg', 'Batería', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
-(29, 'Ibanez SR300', 'MOD-1553', 3053.55, 4, 'instruments/icon.jpg', 'Bajo', '2026-09-14 07:26:11', '2026-09-14 07:26:11');
+(29, 'Ibanez SR300', 'MOD-1553', 3053.55, 4, 'instruments/icon.jpg', 'Bajo', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(30, 'Yamaha YDP-144', 'YDP1440', 6000000, 12, 'instruments/8c152c01-60b2-4a10-88f2-105539ebc605.jpg', 'Piano Digital', '2026-09-15 07:59:47', '2026-09-15 08:00:10');
 
 -- --------------------------------------------------------
 
@@ -154,7 +154,10 @@ INSERT INTO `instrument_items` (`id`, `quantity`, `price`, `instrument_id`, `ord
 (17, 2, 808.36, 25, 32, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (18, 2, 1616.97, 16, 33, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (19, 1, 1616.97, 16, 34, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
-(20, 2, 1025.39, 27, 35, '2026-09-14 07:26:11', '2026-09-14 07:26:11');
+(20, 2, 1025.39, 27, 35, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(21, 9, 3226.08, 2, 36, '2026-09-15 07:50:24', '2026-09-15 07:50:24'),
+(23, 3, 1882.49, 3, 38, '2026-09-15 08:08:19', '2026-09-15 08:08:19'),
+(24, 2, 858.86, 6, 38, '2026-09-15 08:08:19', '2026-09-15 08:08:19');
 
 -- --------------------------------------------------------
 
@@ -271,7 +274,10 @@ INSERT INTO `orders` (`id`, `date`, `total`, `user_id`, `created_at`, `updated_a
 (32, '2026-07-18', 0, 43, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (33, '2026-05-08', 0, 44, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (34, '2026-05-15', 0, 45, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
-(35, '2026-08-02', 0, 46, '2026-09-14 07:26:11', '2026-09-14 07:26:11');
+(35, '2026-08-02', 0, 46, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(36, '2026-09-15', 29034.72, 1, '2026-09-15 07:50:24', '2026-09-15 07:50:24'),
+(37, '2026-09-15', 6669.16, 72, '2026-09-15 08:02:14', '2026-09-15 08:02:14'),
+(38, '2026-09-15', 7365.19, 72, '2026-09-15 08:08:19', '2026-09-15 08:08:19');
 
 -- --------------------------------------------------------
 
@@ -321,7 +327,11 @@ INSERT INTO `payments` (`id`, `cardNumber`, `cardExpiration`, `cvv`, `order_id`,
 (12, '4716191555589054', '2028-04-08', 541, 12, 23, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (13, '4659733379047105', '2026-12-12', 984, 13, 24, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (14, '4716657925142', '2027-09-13', 480, 14, 25, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
-(15, '4539015950122846', '2027-06-21', 415, 15, 26, '2026-09-14 07:26:11', '2026-09-14 07:26:11');
+(15, '4539015950122846', '2027-06-21', 415, 15, 26, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(17, '12345676', '2026-09-17', 908, 36, 1, '2026-09-15 07:50:24', '2026-09-15 07:50:24'),
+(18, '132430385', '2026-09-17', 678, NULL, 72, '2026-09-15 08:02:07', '2026-09-15 08:02:07'),
+(19, '132430385', '2026-09-17', 678, 37, 72, '2026-09-15 08:02:14', '2026-09-15 08:02:14'),
+(20, '132430385', '2026-09-17', 678, 38, 72, '2026-09-15 08:08:19', '2026-09-15 08:08:19');
 
 -- --------------------------------------------------------
 
@@ -344,7 +354,6 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `date`, `content`, `user_id`, `instrument_id`, `created_at`, `updated_at`) VALUES
-(1, '2026-07-16', 'Muy buena construcción, cómodo de tocar.', 47, 1, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (2, '2026-07-09', 'Instrumento sólido, pequeños problemas de afinación.', 48, 27, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (3, '2026-07-08', 'Instrumento sólido, pequeños problemas de afinación.', 49, 4, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (4, '2026-09-06', 'Instrumento sólido, pequeños problemas de afinación.', 50, 6, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
@@ -365,7 +374,6 @@ INSERT INTO `reviews` (`id`, `date`, `content`, `user_id`, `instrument_id`, `cre
 (19, '2026-06-21', 'Excelente fabricación, llegó muy bien empacado.', 65, 2, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (20, '2026-08-24', 'Buena relación calidad-precio, lo recomiendo.', 66, 29, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (21, '2026-06-25', 'Muy buena construcción, cómodo de tocar.', 67, 2, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
-(22, '2026-08-13', 'Muy buena construcción, cómodo de tocar.', 68, 1, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (23, '2026-08-29', 'Excelente fabricación, llegó muy bien empacado.', 69, 28, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (24, '2026-08-24', 'El tono es increíble, perfecto para presentaciones en vivo.', 70, 8, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (25, '2026-06-25', 'El tono es increíble, perfecto para presentaciones en vivo.', 71, 9, '2026-09-14 07:26:11', '2026-09-14 07:26:11');
@@ -390,7 +398,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('etFBioE71pYAkFkpzoWdCsFRcv2bIYvjWwxF1sUa', 1, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.2 Safari/605.1.15', 'eyJfdG9rZW4iOiJJZXFKSkRDWnU3U21CQUU0MXRMTHJhZWp0dWtYaXdZTTBTbHNJbkNBIiwidXJsIjpbXSwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAwIiwicm91dGUiOiJob21lLmluZGV4In0sIl9mbGFzaCI6eyJvbGQiOltdLCJuZXciOltdfSwibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiOjEsImF1dGgiOnsicGFzc3dvcmRfY29uZmlybWVkX2F0IjoxNzg5MzUzMTY1fX0=', 1789355537);
+('RuxMbzlnkFnrxcuSqjXwvyqjVGd0CJXCDzcYKgmL', 72, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.2 Safari/605.1.15', 'eyJfdG9rZW4iOiJtSVNobFVYZVRZZU4wZkZaajZDeVAxcnBQU2J2cklvVVo3Ylk3UWJlIiwiX2ZsYXNoIjp7Im9sZCI6W10sIm5ldyI6W119LCJfcHJldmlvdXMiOnsidXJsIjoiaHR0cDpcL1wvMTI3LjAuMC4xOjgwMDBcL29yZGVyc1wvMzhcL3BkZiIsInJvdXRlIjoib3JkZXIuZG93bmxvYWRQZGYifSwibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiOjcyLCJhdXRoIjp7InBhc3N3b3JkX2NvbmZpcm1lZF9hdCI6MTc4OTQ0MTY4OX19', 1789441701);
 
 -- --------------------------------------------------------
 
@@ -418,9 +426,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `phone`, `address`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@ejemplo.com', NULL, '$2y$12$uK/FB.kad8dyMG5s85c.IuDZj5lyLExrw.se4r6qcPw20Iy3JGbty', '300000000', 'Calle 1 # 2', 'admin', NULL, '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
-(2, 'Anahi Kemmer Sr.', 'swift.daniella@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3783807049', '702 Gleason Valley\nWest Dexter, NM 27419', 'admin', 'CkxMciKcfG', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (3, 'Layla Reynolds', 'collin95@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3172055095', '222 Christina Lakes Suite 533\nNew Art, AK 63983-5993', 'admin', 'SNJ0eJpXHV', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
-(4, 'Rosendo Rath', 'nokon@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3391417378', '38137 Ubaldo Prairie\nNew Leon, ND 70711', 'user', '3YhtEmrjp0', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(4, 'Rosendo Rath', 'nokon@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '123456', 'calle 1 #2', 'admin', '3YhtEmrjp0', '2026-09-14 07:26:11', '2026-09-15 08:00:30'),
 (5, 'Delbert Corkery', 'pinkie.emmerich@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3188517239', '1332 Deckow Turnpike Suite 146\nShanahanberg, ND 64439', 'user', 'PLhLP4b8Ng', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (6, 'Dr. Drew Feest DVM', 'quitzon.lamar@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3576222739', '86922 Lebsack Landing Suite 045\nNienowport, TX 28802-9809', 'admin', 'hyHjuutHvp', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (7, 'Wanda Leannon', 'warren.pfeffer@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3386285987', '740 D\'angelo Glens Apt. 269\nWalterview, TN 65556-4941', 'user', 'FqCzrNwQ8V', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
@@ -487,7 +494,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `ph
 (68, 'Adrian Cummings', 'vkuhic@example.net', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3003764728', '685 Ritchie Field\nEast Evanbury, RI 45105', 'user', 'HVYBgJII5c', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (69, 'Bernard Metz', 'karli.thiel@example.com', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3310515138', '70465 Hill Skyway Suite 743\nNannieberg, CT 63206-1265', 'user', 'ZQSEtq0eSF', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
 (70, 'Maybell Becker', 'farrell.ericka@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3046901389', '782 Conroy Stravenue\nEast Matildachester, ID 86146', 'user', 'R6QDXAGsfu', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
-(71, 'Raheem Hessel', 'zryan@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3406289020', '95087 Rutherford Mews\nEast Ryderstad, CT 40175-3292', 'admin', '46q0FZ3Zhx', '2026-09-14 07:26:11', '2026-09-14 07:26:11');
+(71, 'Raheem Hessel', 'zryan@example.org', '2026-09-14 07:26:11', '$2y$12$Z6qM6mffhUIED3dg8qaJgO9wpMYYhTrCS7vBgkZau/qhOStGSXCHe', '3406289020', '95087 Rutherford Mews\nEast Ryderstad, CT 40175-3292', 'admin', '46q0FZ3Zhx', '2026-09-14 07:26:11', '2026-09-14 07:26:11'),
+(72, 'Luis', 'luis@g.com', NULL, '$2y$12$Cw2FyGEdWvHzLTaVrNF0IugMetlPdgzkmtO.tCoWQn6GjeXucyWoW', '3120469', 'calle 2', 'user', NULL, '2026-09-15 08:01:37', '2026-09-15 08:01:37');
 
 --
 -- Índices para tablas volcadas
@@ -606,13 +614,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `instruments`
 --
 ALTER TABLE `instruments`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `instrument_items`
 --
 ALTER TABLE `instrument_items`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `jobs`
@@ -630,13 +638,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `reviews`
@@ -648,7 +656,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- Restricciones para tablas volcadas

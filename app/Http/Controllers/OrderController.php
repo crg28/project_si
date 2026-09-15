@@ -29,6 +29,7 @@ class OrderController extends Controller
         $viewData = [];
         $viewData['order'] = $order;
         $viewData['items'] = $order->instrumentItems;
+        $viewData['user'] = $order->user;
 
         $pdf = Pdf::loadView('order.invoice', $viewData);
 
