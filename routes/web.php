@@ -29,7 +29,8 @@ Route::get('/instruments/{id}', [InstrumentController::class, 'show'])->name('in
 Route::get('/user/detail/{id}', [UserController::class, 'detail'])->name('user.detail');
 
 // Payment Routes
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () 
+{
     Route::get('/payments/create', [PaymentController::class, 'create'])->name('payment.create');
     Route::post('/payments', [PaymentController::class, 'store'])->name('payment.store');
     Route::delete('/payments/{id}', [PaymentController::class, 'destroy'])->name('payment.destroy');
@@ -46,26 +47,26 @@ Route::get('/orders/{id}', [OrderController::class, 'show'])->middleware('auth')
 Route::get('/orders/{id}/pdf', [OrderController::class, 'downloadPdf'])->middleware('auth')->name('order.downloadPdf');
 
 // Admin routes
-Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function ()
+{
+    // Dashboard routes
+    Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
 
-// Dashboard routes
-Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+    // Instrument CRUD routes
+    Route::get('/instruments', [AdminInstrumentController::class, 'index'])->name('instrument.index');
+    Route::get('/instruments/create', [AdminInstrumentController::class, 'create'])->name('instrument.create');
+    Route::post('/instruments', [AdminInstrumentController::class, 'store'])->name('instrument.store');
+    Route::get('/instruments/{id}', [AdminInstrumentController::class, 'show'])->name('instrument.show');
+    Route::get('/instruments/{id}/edit', [AdminInstrumentController::class, 'edit'])->name('instrument.edit');
+    Route::put('/instruments/{id}', [AdminInstrumentController::class, 'update'])->name('instrument.update');
+    Route::delete('/instruments/{id}', [AdminInstrumentController::class, 'destroy'])->name('instrument.destroy');
 
-// Instrument CRUD routes
-Route::get('/instruments', [AdminInstrumentController::class, 'index'])->name('instrument.index');
-Route::get('/instruments/create', [AdminInstrumentController::class, 'create'])->name('instrument.create');
-Route::post('/instruments', [AdminInstrumentController::class, 'store'])->name('instrument.store');
-Route::get('/instruments/{id}', [AdminInstrumentController::class, 'show'])->name('instrument.show');
-Route::get('/instruments/{id}/edit', [AdminInstrumentController::class, 'edit'])->name('instrument.edit');
-Route::put('/instruments/{id}', [AdminInstrumentController::class, 'update'])->name('instrument.update');
-Route::delete('/instruments/{id}', [AdminInstrumentController::class, 'destroy'])->name('instrument.destroy');
-
-// User CRUD routes
-Route::get('/users', [AdminUserController::class, 'index'])->name('user.index');
-Route::get('/users/create', [AdminUserController::class, 'create'])->name('user.create');
-Route::post('/users', [AdminUserController::class, 'store'])->name('user.store');
-Route::get('/users/{id}', [AdminUserController::class, 'show'])->name('user.show');
-Route::get('/users/{id}/edit', [AdminUserController::class, 'edit'])->name('user.edit');
-Route::put('/users/{id}', [AdminUserController::class, 'update'])->name('user.update');
-Route::delete('/users/{id}', [AdminUserController::class, 'destroy'])->name('user.destroy');
+    // User CRUD routes
+    Route::get('/users', [AdminUserController::class, 'index'])->name('user.index');
+    Route::get('/users/create', [AdminUserController::class, 'create'])->name('user.create');
+    Route::post('/users', [AdminUserController::class, 'store'])->name('user.store');
+    Route::get('/users/{id}', [AdminUserController::class, 'show'])->name('user.show');
+    Route::get('/users/{id}/edit', [AdminUserController::class, 'edit'])->name('user.edit');
+    Route::put('/users/{id}', [AdminUserController::class, 'update'])->name('user.update');
+    Route::delete('/users/{id}', [AdminUserController::class, 'destroy'])->name('user.destroy');
 });
