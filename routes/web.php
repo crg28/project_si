@@ -47,29 +47,26 @@ Route::middleware('auth')->group(function () {
 });
 
 // Admin routes
-Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function ()
+Route::middleware(['auth', 'admin'])->group(function ()
 {
-    // Dashboard routes
-    Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
-
-    // Dashboard routes
-    Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+    // Dashboard route
+    Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
     // Instrument CRUD routes
-    Route::get('/instruments', [AdminInstrumentController::class, 'index'])->name('instrument.index');
-    Route::get('/instruments/create', [AdminInstrumentController::class, 'create'])->name('instrument.create');
-    Route::post('/instruments', [AdminInstrumentController::class, 'store'])->name('instrument.store');
-    Route::get('/instruments/{id}', [AdminInstrumentController::class, 'show'])->name('instrument.show');
-    Route::get('/instruments/{id}/edit', [AdminInstrumentController::class, 'edit'])->name('instrument.edit');
-    Route::put('/instruments/{id}', [AdminInstrumentController::class, 'update'])->name('instrument.update');
-    Route::delete('/instruments/{id}', [AdminInstrumentController::class, 'destroy'])->name('instrument.destroy');
+    Route::get('/admin/instruments', [AdminInstrumentController::class, 'index'])->name('admin.instrument.index');
+    Route::get('/admin/instruments/create', [AdminInstrumentController::class, 'create'])->name('admin.instrument.create');
+    Route::post('/admin/instruments', [AdminInstrumentController::class, 'store'])->name('admin.instrument.store');
+    Route::get('/admin/instruments/{id}', [AdminInstrumentController::class, 'show'])->name('admin.instrument.show');
+    Route::get('/admin/instruments/{id}/edit', [AdminInstrumentController::class, 'edit'])->name('admin.instrument.edit');
+    Route::put('/admin/instruments/{id}', [AdminInstrumentController::class, 'update'])->name('admin.instrument.update');
+    Route::delete('/admin/instruments/{id}', [AdminInstrumentController::class, 'destroy'])->name('admin.instrument.destroy');
 
     // User CRUD routes
-    Route::get('/users', [AdminUserController::class, 'index'])->name('user.index');
-    Route::get('/users/create', [AdminUserController::class, 'create'])->name('user.create');
-    Route::post('/users', [AdminUserController::class, 'store'])->name('user.store');
-    Route::get('/users/{id}', [AdminUserController::class, 'show'])->name('user.show');
-    Route::get('/users/{id}/edit', [AdminUserController::class, 'edit'])->name('user.edit');
-    Route::put('/users/{id}', [AdminUserController::class, 'update'])->name('user.update');
-    Route::delete('/users/{id}', [AdminUserController::class, 'destroy'])->name('user.destroy');
+    Route::get('/admin/users', [AdminUserController::class, 'index'])->name('admin.user.index');
+    Route::get('/admin/users/create', [AdminUserController::class, 'create'])->name('admin.user.create');
+    Route::post('/admin/users', [AdminUserController::class, 'store'])->name('admin.user.store');
+    Route::get('/admin/users/{id}', [AdminUserController::class, 'show'])->name('admin.user.show');
+    Route::get('/admin/users/{id}/edit', [AdminUserController::class, 'edit'])->name('admin.user.edit');
+    Route::put('/admin/users/{id}', [AdminUserController::class, 'update'])->name('admin.user.update');
+    Route::delete('/admin/users/{id}', [AdminUserController::class, 'destroy'])->name('admin.user.destroy');
 });
