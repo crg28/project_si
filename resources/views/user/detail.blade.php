@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('messages.userDetail') }}</div>
+                <div class="card-header">{{ __('messages.user_detail') }}</div>
                 <div class="card-body">
                     <input type="text" class="form-control mb-2" value="{{ $viewData['user']->getName() }}" readonly>
                     <input type="text" class="form-control mb-2" value="{{ $viewData['user']->getEmail() }}" readonly>

@@ -23,7 +23,7 @@ return [
     'role' => 'Rol',
     'role_user' => 'Usuario',
     'role_admin' => 'Administrador',
-    'userDetail' => 'Detalle de usuario',
+    'user_detail' => 'Detalle de usuario',
     'instrument' => 'Instrumento',
     'instruments' => 'Instrumentos',
     'category' => 'Categoría',
