@@ -12,11 +12,11 @@ class ImageLocalStorage implements ImageStorage
 {
     public function store(UploadedFile $file, string $folder): string
     {
-        $filename = Str::uuid() . '.' . $file->extension();
+        $filename = Str::uuid().'.'.$file->extension();
 
         $file->storeAs($folder, $filename, 'public');
 
-        return $folder . '/' . $filename;
+        return $folder.'/'.$filename;
     }
 
     public function delete(string $path): void

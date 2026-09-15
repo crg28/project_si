@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Instrument;
 use App\Models\InstrumentItem;
-use Illuminate\Http\Request;
 use App\Models\Review;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 // Author: Carlos Restrepo
@@ -16,7 +16,7 @@ class InstrumentController extends Controller
         $query = Instrument::query();
 
         if ($request->filled('name')) {
-            $query->where('name', 'like', '%' . $request->input('name') . '%');
+            $query->where('name', 'like', '%'.$request->input('name').'%');
         }
 
         if ($request->filled('category')) {

@@ -7,8 +7,8 @@ use App\Http\Requests\Admin\StoreInstrumentRequest;
 use App\Http\Requests\Admin\UpdateInstrumentRequest;
 use App\Interfaces\ImageStorage;
 use App\Models\Instrument;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 // Author: Carlos Restrepo
@@ -19,7 +19,7 @@ class AdminInstrumentController extends Controller
         $query = Instrument::query();
 
         if ($request->filled('name')) {
-            $query->where('name', 'like', '%' . $request->input('name') . '%');
+            $query->where('name', 'like', '%'.$request->input('name').'%');
         }
 
         if ($request->filled('category')) {
@@ -54,7 +54,7 @@ class AdminInstrumentController extends Controller
     {
         $validated = $request->validated();
 
-        $instrument = new Instrument();
+        $instrument = new Instrument;
         $instrument->setName($validated['name']);
         $instrument->setModel($validated['model']);
         $instrument->setPrice($validated['price']);

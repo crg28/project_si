@@ -32,6 +32,6 @@ class OrderController extends Controller
 
         $pdf = Pdf::loadView('order.invoice', $viewData);
 
-        return $pdf->download('factura-pedido-' . $order->getId() . '.pdf');
+        return $pdf->download('factura-pedido-'.$order->getId().'.pdf');
     }
 }

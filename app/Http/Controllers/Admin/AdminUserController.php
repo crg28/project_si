@@ -7,9 +7,9 @@ use App\Http\Requests\Admin\StoreUserRequest;
 use App\Http\Requests\Admin\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 
 // Author: Carlos Restrepo
 class AdminUserController extends Controller
@@ -19,7 +19,7 @@ class AdminUserController extends Controller
         $query = User::query();
 
         if ($request->filled('email')) {
-            $query->where('email', 'like', '%' . $request->input('email') . '%');
+            $query->where('email', 'like', '%'.$request->input('email').'%');
         }
 
         $viewData = [];
@@ -48,7 +48,7 @@ class AdminUserController extends Controller
     {
         $validated = $request->validated();
 
-        $user = new User();
+        $user = new User;
         $user->setName($validated['name']);
         $user->setEmail($validated['email']);
         $user->setPassword(Hash::make($validated['password']));
@@ -80,7 +80,7 @@ class AdminUserController extends Controller
         $user->setAddress($validated['address']);
         $user->setRole($validated['role']);
 
-        if (!empty($validated['password'])) {
+        if (! empty($validated['password'])) {
             $user->setPassword(Hash::make($validated['password']));
         }
 

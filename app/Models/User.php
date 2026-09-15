@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use \Illuminate\Database\Eloquent\Relations\HasMany;
 
 // Author: Carlos Restrepo
 class User extends Authenticatable
@@ -24,7 +24,6 @@ class User extends Authenticatable
      * $this->attributes['created_at'] - string - creation timestamp
      * $this->attributes['updated_at'] - string - last update timestamp
      */
-
     protected $fillable = [
         'name',
         'email',

@@ -21,7 +21,7 @@ class PaymentController extends Controller
     {
         $validated = $request->validated();
 
-        $payment = new Payment();
+        $payment = new Payment;
         $payment->setCardNumber($validated['cardNumber']);
         $payment->setCardExpiration($validated['cardExpiration']);
         $payment->setCvv((int) $validated['cvv']);

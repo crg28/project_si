@@ -119,7 +119,7 @@ class CartController extends Controller
             ->where('user_id', auth()->id())
             ->firstOrFail();
 
-        $order = new Order();
+        $order = new Order;
         $order->setDate(now()->format('Y-m-d'));
         $order->setTotal(0);
         $order->setUserId(auth()->id());
@@ -132,7 +132,7 @@ class CartController extends Controller
                 continue;
             }
 
-            $instrumentItem = new InstrumentItem();
+            $instrumentItem = new InstrumentItem;
             $instrumentItem->setInstrumentId($instrument->getId());
             $instrumentItem->setOrderId($order->getId());
             $instrumentItem->setQuantity($quantity);
@@ -144,7 +144,7 @@ class CartController extends Controller
 
         $order->calculateTotal();
 
-        $orderPayment = new Payment();
+        $orderPayment = new Payment;
         $orderPayment->setCardNumber($selectedPayment->getCardNumber());
         $orderPayment->setCardExpiration($selectedPayment->getCardExpiration());
         $orderPayment->setCvv($selectedPayment->getCvv());

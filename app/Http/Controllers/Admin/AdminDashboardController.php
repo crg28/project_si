@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\View\View;
 use App\Models\Instrument;
 use App\Models\Order;
 use App\Models\Review;
 use App\Models\User;
+use Illuminate\View\View;
 
 // Author: Carlos Restrepo
 class AdminDashboardController extends Controller

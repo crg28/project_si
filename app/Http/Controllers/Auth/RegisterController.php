@@ -33,7 +33,7 @@ class RegisterController extends Controller
     {
         $validated = $request->validated();
 
-        $user = new User();
+        $user = new User;
         $user->setName($validated['name']);
         $user->setEmail($validated['email']);
         $user->setPassword(Hash::make($validated['password']));
