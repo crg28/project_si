@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
+// Author: Juan Cortes
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -23,7 +24,6 @@ class User extends Authenticatable
      * $this->attributes['created_at'] - string - creation timestamp
      * $this->attributes['updated_at'] - string - last update timestamp
      */
-
     protected $fillable = [
         'name',
         'email',
@@ -75,7 +75,7 @@ class User extends Authenticatable
 
     public function getPhone(): string
     {
-        return $this->attributes['phone'] ?? '';
+        return $this->attributes['phone'];
     }
 
     public function setPhone(string $phone): void
@@ -85,7 +85,7 @@ class User extends Authenticatable
 
     public function getAddress(): string
     {
-        return $this->attributes['address'] ?? '';
+        return $this->attributes['address'];
     }
 
     public function setAddress(string $address): void

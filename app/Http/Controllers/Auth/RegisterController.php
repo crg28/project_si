@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
+// Author: Carlos Restrepo
 class RegisterController extends Controller
 {
     use RegistersUsers;
@@ -32,7 +33,7 @@ class RegisterController extends Controller
     {
         $validated = $request->validated();
 
-        $user = new User();
+        $user = new User;
         $user->setName($validated['name']);
         $user->setEmail($validated['email']);
         $user->setPassword(Hash::make($validated['password']));

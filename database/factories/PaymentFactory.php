@@ -6,7 +6,7 @@ use App\Models\Order;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-// Author: Carlos Restrepo
+// Author: Juan Cortes
 class PaymentFactory extends Factory
 {
     public function definition(): array

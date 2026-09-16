@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-// Author: Carlos Restrepo
+// Author: Juan Cortes
 class Payment extends Model
 {
     use HasFactory;
@@ -16,12 +17,11 @@ class Payment extends Model
      * $this->attributes['cardNumber'] - string
      * $this->attributes['cardExpiration'] - date
      * $this->attributes['cvv'] - int
-     * $this->attributes['order_id'] - int - fk order
+     * $this->attributes['order_id'] - int|null - fk order (can be null)
      * $this->attributes['user_id'] - int - fk user
      * $this->attributes['created_at'] - string - creation timestamp - by default
      * $this->attributes['updated_at'] - string - last update timestamp - by default
      */
-
     protected $fillable = [
         'cardNumber',
         'cardExpiration',
@@ -33,11 +33,6 @@ class Payment extends Model
     public function getId(): int
     {
         return $this->attributes['id'];
-    }
-
-    public function setId($id): void
-    {
-        $this->attributes['id'] = $id;
     }
 
     public function getCardNumber(): string
@@ -70,17 +65,37 @@ class Payment extends Model
         $this->attributes['cvv'] = $cvv;
     }
 
+    public function getOrderId(): ?int
+    {
+        return $this->attributes['order_id'];
+    }
+
+    public function setOrderId(?int $orderId): void
+    {
+        $this->attributes['order_id'] = $orderId;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId(int $userId): void
+    {
+        $this->attributes['user_id'] = $userId;
+    }
+
     public function process(): bool
     {
         return true;
     }
 
-    public function order()
+    public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
     }
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

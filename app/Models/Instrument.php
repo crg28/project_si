@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 // Author: Carlos Restrepo
 class Instrument extends Model
@@ -22,7 +23,6 @@ class Instrument extends Model
      * $this->attributes['created_at'] - string - creation timestamp - by default
      * $this->attributes['updated_at'] - string - last update timestamp - by default
      */
-
     protected $fillable = [
         'name',
         'model',
@@ -117,13 +117,21 @@ class Instrument extends Model
         $this->attributes['updated_at'] = $updatedAt;
     }
 
-    public function instrumentItems(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function instrumentItems(): HasMany
     {
         return $this->hasMany(InstrumentItem::class);
     }
 
-    public function reviews(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function decreaseStock(int $quantity): void
+    {
+        $newStock = $this->getStock() - $quantity;
+
+        $this->setStock(max(0, $newStock));
+        $this->save();
     }
 }

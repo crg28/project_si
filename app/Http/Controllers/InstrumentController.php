@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Instrument;
 use App\Models\InstrumentItem;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-
+// Author: Carlos Restrepo
 class InstrumentController extends Controller
 {
     public function index(Request $request): View
@@ -15,7 +16,7 @@ class InstrumentController extends Controller
         $query = Instrument::query();
 
         if ($request->filled('name')) {
-            $query->where('name', 'like', '%' . $request->input('name') . '%');
+            $query->where('name', 'like', '%'.$request->input('name').'%');
         }
 
         if ($request->filled('category')) {
@@ -32,7 +33,10 @@ class InstrumentController extends Controller
 
     public function show(int $id): View
     {
-        $viewData['instrument'] = Instrument::findOrFail($id);
+        $instrument = Instrument::findOrFail($id);
+
+        $viewData['instrument'] = $instrument;
+        $viewData['reviews'] = $instrument->reviews()->with('user')->latest()->get();
 
         return view('instrument.show', $viewData);
     }
@@ -48,5 +52,18 @@ class InstrumentController extends Controller
         $viewData['instruments'] = Instrument::whereIn('id', $topInstrumentIds)->get();
 
         return view('instrument.topSelling', $viewData);
+    }
+
+    public function mostReviewed(): View
+    {
+        $topInstrumentIds = Review::selectRaw('instrument_id, COUNT(*) as review_count')
+            ->groupBy('instrument_id')
+            ->orderByDesc('review_count')
+            ->take(4)
+            ->pluck('instrument_id');
+
+        $viewData['instruments'] = Instrument::whereIn('id', $topInstrumentIds)->get();
+
+        return view('instrument.mostReviewed', $viewData);
     }
 }

@@ -10,14 +10,14 @@ use App\Models\Review;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
-// Author: Carlos
+// Author: Santiago Arellano
 class DatabaseSeeder extends Seeder
 {
     // Creation of factories must be in order to prevent foreign keys errors
     public function run(): void
     {
         // 1. Includes a known-admin user for testing
-        $adminUser = new User();
+        $adminUser = new User;
         $adminUser->setName('Admin');
         $adminUser->setEmail('admin@ejemplo.com');
         $adminUser->setPassword(bcrypt('contraseña'));
@@ -29,13 +29,13 @@ class DatabaseSeeder extends Seeder
         $users = User::factory(10)->create();
 
         // 2. Instruments
-        $instruments = Instrument::factory(30)->create();
+        $instruments = Instrument::factory(29)->create();
 
         // 3. Orders
         $orders = Order::factory(15)->create();
 
         // 4. Instrument Items
-        InstrumentItem::factory(30)->create();
+        InstrumentItem::factory(20)->create();
 
         // 5. Calculate totals for each order
         foreach ($orders as $order) {
