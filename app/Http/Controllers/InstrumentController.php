@@ -43,26 +43,24 @@ class InstrumentController extends Controller
 
     public function topSelling(): View
     {
-        $topInstrumentIds = InstrumentItem::selectRaw('instrument_id, SUM(quantity) as total_sold')
-            ->groupBy('instrument_id')
-            ->orderByDesc('total_sold')
+        $topSellings = Instrument::withSum('instrumentItems', 'quantity')
+            ->orderByDesc('instrument_items_sum_quantity')
             ->take(3)
-            ->pluck('instrument_id');
-
-        $viewData['instruments'] = Instrument::whereIn('id', $topInstrumentIds)->get();
+            ->get();
+        $viewData['instruments'] = $topSellings;
 
         return view('instrument.topSelling', $viewData);
     }
 
+    // Author: Juan Cortes
     public function mostReviewed(): View
     {
-        $topInstrumentIds = Review::selectRaw('instrument_id, COUNT(*) as review_count')
-            ->groupBy('instrument_id')
-            ->orderByDesc('review_count')
-            ->take(4)
-            ->pluck('instrument_id');
+       $topReviewed =Instrument::withCount('reviews')
+            ->orderByDesc('reviews_count')
+            ->take(3)
+            ->get();
 
-        $viewData['instruments'] = Instrument::whereIn('id', $topInstrumentIds)->get();
+        $viewData['instruments'] = $topReviewed;
 
         return view('instrument.mostReviewed', $viewData);
     }
