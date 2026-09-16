@@ -1,0 +1,7 @@
+cat > storage/app/public/.gitignore << 'EOF'
+*
+!.gitignore
+!instruments/
+instruments/*
+!instruments/icon.jpg
+EOF
