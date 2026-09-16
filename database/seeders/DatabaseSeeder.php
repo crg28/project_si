@@ -10,7 +10,7 @@ use App\Models\Review;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
-// Author: Carlos
+// Author: Santiago Arellano
 class DatabaseSeeder extends Seeder
 {
     // Creation of factories must be in order to prevent foreign keys errors

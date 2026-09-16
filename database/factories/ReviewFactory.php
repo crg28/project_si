@@ -6,7 +6,7 @@ use App\Models\Instrument;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-// Author: Carlos Restrepo
+// Author: Santiago Arellano
 class ReviewFactory extends Factory
 {
     public function definition(): array

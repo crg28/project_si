@@ -7,7 +7,7 @@ use App\Models\Payment;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
-// Author: Carlos Restrepo
+// Author: Juan Cortes
 class PaymentController extends Controller
 {
     public function create(): View

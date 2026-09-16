@@ -11,7 +11,8 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-// Authors: Juan Cortes & Carlos Restrepo
+// Authors: Santiago Arellano, Juan Cortes & Carlos Restrepo
+
 // Authentication routes
 Auth::routes();
 

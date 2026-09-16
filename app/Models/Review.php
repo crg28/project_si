@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-// Author: Carlos Restrepo
+// Author: Santiago Arellano
 class Review extends Model
 {
     use HasFactory;
