@@ -8,10 +8,12 @@
 
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito:400,600,700" rel="stylesheet">
-    <link href="resources/css/admin.css" rel="stylesheet">
+
     
 
+    @vite(['resources/css/admin.css'])
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 </head>
 <body>
     <div class="d-flex admin-wrapper">

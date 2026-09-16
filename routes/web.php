@@ -28,7 +28,6 @@ Route::get('/instruments/{id}', [InstrumentController::class, 'show'])->name('in
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
 Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
-Route::post('/cart/checkout', [CartController::class, 'checkout'])->middleware('auth')->name('cart.checkout');
 
 // User routes
 Route::middleware('auth')->group(function () {
@@ -44,6 +43,9 @@ Route::middleware('auth')->group(function () {
     // Order routes
     Route::get('/orders/{id}', [OrderController::class, 'show'])->name('order.show');
     Route::get('/orders/{id}/pdf', [OrderController::class, 'downloadPdf'])->name('order.downloadPdf');
+
+    // Cart routes
+    Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 });
 
 // Admin routes
