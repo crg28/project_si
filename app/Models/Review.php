@@ -14,7 +14,6 @@ class Review extends Model
     /**
      * REVIEW ATTRIBUTES
      * $this->attributes['id'] - int
-     * $this->attributes['date'] - string
      * $this->attributes['content'] - string
      * $this->attributes['user_id'] - int - fk user
      * $this->attributes['instrument_id'] - int - fk instrument
@@ -31,16 +30,6 @@ class Review extends Model
     public function getId(): int
     {
         return $this->attributes['id'];
-    }
-
-    public function getDate(): string
-    {
-        return $this->attributes['date'];
-    }
-
-    public function setDate(string $date): void
-    {
-        $this->attributes['date'] = $date;
     }
 
     public function getContent(): string
