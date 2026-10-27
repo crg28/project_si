@@ -17,7 +17,7 @@
         <tbody>
             @foreach ($items as $item)
                 <tr>
-                    <td>{{ $item->instrument->getName() }}</td>
+                    <td>{{ $item->getInstrument()->getName() }}</td>
                     <td>{{ $item->getQuantity() }}</td>
                     <td>${{ number_format($item->getPrice(), 2) }}</td>
                     <td>${{ number_format($item->calculateSubtotal(), 2) }}</td>

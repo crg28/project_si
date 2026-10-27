@@ -36,8 +36,8 @@
 
     @forelse ($reviews as $review)
         <div class="border-bottom py-3">
-            <strong>{{ $review->user->getName() }}</strong>
-            <small class="text-muted">— {{ $review->getDate() }}</small>
+            <strong>{{ $review->getUser()->getName() }}</strong>
+            <small class="text-muted">— {{ $review->getCreatedAt() }}</small>
             <p class="mb-0">{{ $review->getContent() }}</p>
         </div>
     @empty

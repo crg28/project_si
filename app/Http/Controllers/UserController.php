@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Payment;
 use Illuminate\View\View;
 
 // Author: Juan Cortes & Carlos Restrepo
@@ -12,7 +11,7 @@ class UserController extends Controller
     {
         $user = auth()->user();
 
-        $payments = Payment::where('user_id', $user->getId())
+        $payments = $user->payments()
             ->whereNull('order_id')
             ->get();
 
