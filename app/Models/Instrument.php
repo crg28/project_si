@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -22,6 +23,10 @@ class Instrument extends Model
      * $this->attributes['category'] - string
      * $this->attributes['created_at'] - string - creation timestamp - by default
      * $this->attributes['updated_at'] - string - last update timestamp - by default
+     * 
+     * INSTRUMENT RELATIONS
+     * $this->instrumentItems - Collection|InstrumentItem[] - associated instrument items
+     * $this->reviews - Collection|Review[] - associated reviews
      */
     protected $fillable = [
         'name',
@@ -31,6 +36,12 @@ class Instrument extends Model
         'imagePath',
         'category',
     ];
+
+    /*
+    |--------------------------------------------------------------------------
+    | ATTRIBUTE GETTERS & SETTERS
+    |--------------------------------------------------------------------------
+    */
 
     public function getId(): int
     {
@@ -117,6 +128,12 @@ class Instrument extends Model
         $this->attributes['updated_at'] = $updatedAt;
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | ELOQUENT RELATIONS
+    |--------------------------------------------------------------------------
+    */
+
     public function instrumentItems(): HasMany
     {
         return $this->hasMany(InstrumentItem::class);
@@ -126,6 +143,38 @@ class Instrument extends Model
     {
         return $this->hasMany(Review::class);
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | RELATION GETTERS & SETTERS
+    |--------------------------------------------------------------------------
+    */
+
+    public function getInstrumentItems(): Collection
+    {
+        return $this->instrumentItems;
+    }
+
+    public function setInstrumentItems(Collection $instrumentItems): void
+    {
+        $this->instrumentItems = $instrumentItems;
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | BUSINESS LOGIC & UTILITIES
+    |--------------------------------------------------------------------------
+    */
 
     public function decreaseStock(int $quantity): void
     {

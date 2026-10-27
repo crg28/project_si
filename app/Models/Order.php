@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Collection;
 
 // Author: Santiago Arellano
 class Order extends Model
@@ -28,6 +29,11 @@ class Order extends Model
         'user_id',
     ];
 
+    /*
+    |--------------------------------------------------------------------------
+    | ATTRIBUTE GETTERS & SETTERS
+    |--------------------------------------------------------------------------
+    */
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -83,23 +89,11 @@ class Order extends Model
         $this->attributes['updated_at'] = $updatedAt;
     }
 
-    public function calculateTotal(): void
-    {
-        $subtotal = 0;
-
-        foreach ($this->instrumentItems as $instrumentItem) {
-            $subtotal += $instrumentItem->calculateSubtotal();
-        }
-
-        $this->setTotal($subtotal);
-        $this->save();
-    }
-
-    public function cancel(): bool
-    {
-        return (bool) $this->delete();
-    }
-
+    /*
+    |--------------------------------------------------------------------------
+    | ELOQUENT RELATIONS
+    |--------------------------------------------------------------------------
+    */
     public function instrumentItems(): HasMany
     {
         return $this->hasMany(InstrumentItem::class);
@@ -113,5 +107,62 @@ class Order extends Model
     public function payment(): HasOne
     {
         return $this->hasOne(Payment::class);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | RELATION GETTERS & SETTERS
+    |--------------------------------------------------------------------------
+    */
+    public function getInstrumentItems(): Collection
+    {
+        return $this->instrumentItems;
+    }
+
+    public function setInstrumentItems(Collection $instrumentItems): void
+    {
+        $this->instrumentItems = $instrumentItems;
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
+    }
+
+    public function getPayment(): Payment
+    {
+        return $this->payment;
+    }
+
+    public function setPayment(Payment $payment): void
+    {
+        $this->payment = $payment;
+    }
+    /*
+    |--------------------------------------------------------------------------
+    | BUSINESS LOGIC & UTILITIES
+    |--------------------------------------------------------------------------
+    */
+
+    public function calculateTotal(): void
+    {
+        $subtotal = 0;
+
+        foreach ($this->getInstrumentItems() as $instrumentItem) {
+            $subtotal += $instrumentItem->calculateSubtotal();
+        }
+
+        $this->setTotal($subtotal);
+        $this->save();
+    }
+
+    public function cancel(): bool
+    {
+        return (bool) $this->delete();
     }
 }
