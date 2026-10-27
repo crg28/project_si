@@ -43,11 +43,11 @@ class InstrumentController extends Controller
 
     public function topSelling(): View
     {
-        $topSellings = Instrument::withSum('instrumentItems', 'quantity')
+        $topSellingInstruments = Instrument::withSum('instrumentItems', 'quantity')
             ->orderByDesc('instrument_items_sum_quantity')
             ->take(3)
             ->get();
-        $viewData['instruments'] = $topSellings;
+        $viewData['instruments'] = $topSellingInstruments;
 
         return view('instrument.topSelling', $viewData);
     }
@@ -55,12 +55,12 @@ class InstrumentController extends Controller
     // Author: Juan Cortes
     public function mostReviewed(): View
     {
-       $topReviewed =Instrument::withCount('reviews')
+       $topReviewedInstruments =Instrument::withCount('reviews')
             ->orderByDesc('reviews_count')
             ->take(3)
             ->get();
 
-        $viewData['instruments'] = $topReviewed;
+        $viewData['instruments'] = $topReviewedInstruments;
 
         return view('instrument.mostReviewed', $viewData);
     }
