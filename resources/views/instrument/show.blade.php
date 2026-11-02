@@ -38,9 +38,10 @@
         <div class="card-body">
             <h5 class="card-title mb-3">{{ __('messages.add_review') }}</h5>
             
-            <form action="{{ route('review.store', $instrument->getId()) }}" method="POST">
+            <form method="POST" action="{{ route('review.store', $instrument->getId()) }}">
                 @csrf
                 
+                <input type="hidden" name="instrument_id" value="{{ $instrument->getId() }}">
                 <div class="mb-3">
                     <label for="content" class="form-label">{{ __('messages.review_content') }}</label>
                     <textarea 

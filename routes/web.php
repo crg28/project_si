@@ -50,7 +50,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
     // Reviews routes
-    Route::post('/reviews/store', [ReviewController::class, 'store'])->name('review.store');
+    Route::post('/reviews/{id}', [ReviewController::class, 'store'])->name('review.store');
 });
 
 // Admin routes

@@ -97,4 +97,5 @@ return [
     'review_content' => 'Comentario',
     'write_review_placeholder' => 'Comparte tu opinión sobre este instrumento...',
     'submit_review' => 'Publicar Reseña',
+    'review_created_success' => '¡Tu reseña ha sido publicada con éxito!',
 ];
