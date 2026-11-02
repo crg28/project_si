@@ -64,4 +64,22 @@ class ReviewController extends Controller
         return redirect()->route('instrument.show', $review->getInstrumentId())
             ->with('success', __('messages.review_updated_success'));
     }
+
+    public function delete(int $id): RedirectResponse
+    {
+        $review = Review::findOrFail($id);
+
+        /** @var User $user */
+        $user = auth()->user();
+
+        if ($user->getId() !== $review->getUserId()) {
+            abort(403);
+        }
+
+        $instrumentId = $review->getInstrumentId();
+        $review->delete();
+
+        return redirect()->route('instrument.show', $instrumentId)
+            ->with('success', __('messages.review_deleted_success'));
+    }
 }

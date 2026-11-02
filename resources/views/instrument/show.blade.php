@@ -78,6 +78,14 @@
                         <a href="{{ route('review.edit', $review->getId()) }}" class="btn btn-sm btn-outline-secondary">
                             {{ __('messages.edit') }}
                         </a>
+
+                        <form action="{{ route('review.delete', $review->getId()) }}" method="POST" onsubmit="return confirm('{{ __('messages.confirm_delete_review') }}')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                {{ __('messages.delete') }}
+                            </button>
+                        </form>
                     </div>
                 @endif
             </div>
