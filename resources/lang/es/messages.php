@@ -93,4 +93,8 @@ return [
     'developed_by' => 'Desarrollado por',
     'go_to_admin_panel' => 'Ir al panel de administración',
     'use_sidebar_hint' => 'Usa la barra lateral para examinar los datos disponibles.',
+    'add_review' => 'Escribir una reseña',
+    'review_content' => 'Comentario',
+    'write_review_placeholder' => 'Comparte tu opinión sobre este instrumento...',
+    'submit_review' => 'Publicar Reseña',
 ];

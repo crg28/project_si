@@ -7,7 +7,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
-// Author: Carlos Restrepo
+// Author: Santiago Arellano
 class OrderController extends Controller
 {
     public function show(int $id): View

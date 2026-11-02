@@ -9,6 +9,7 @@ use App\Http\Controllers\InstrumentController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 // Authors: Santiago Arellano, Juan Cortes & Carlos Restrepo
@@ -47,6 +48,9 @@ Route::middleware('auth')->group(function () {
 
     // Cart routes
     Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+
+    // Reviews routes
+    Route::post('/reviews/store', [ReviewController::class, 'store'])->name('review.store');
 });
 
 // Admin routes

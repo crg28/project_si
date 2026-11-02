@@ -34,6 +34,37 @@
 
     <h3>{{ __('messages.reviews') }}</h3>
 
+    <div class="card my-3">
+        <div class="card-body">
+            <h5 class="card-title mb-3">{{ __('messages.add_review') }}</h5>
+            
+            <form action="{{ route('review.store', $instrument->getId()) }}" method="POST">
+                @csrf
+                
+                <div class="mb-3">
+                    <label for="content" class="form-label">{{ __('messages.review_content') }}</label>
+                    <textarea 
+                        name="content" 
+                        id="content" 
+                        rows="3" 
+                        class="form-control @error('content') is-invalid @enderror" 
+                        placeholder="{{ __('messages.write_review_placeholder') }}" 
+                        required>{{ old('content') }}</textarea>
+                    
+                    @error('content')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    {{ __('messages.submit_review') }}
+                </button>
+            </form>
+        </div>
+    </div>
+
     @forelse ($reviews as $review)
         <div class="border-bottom py-3">
             <strong>{{ $review->getUser()->getName() }}</strong>
