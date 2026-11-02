@@ -41,7 +41,6 @@
             <form method="POST" action="{{ route('review.store', $instrument->getId()) }}">
                 @csrf
                 
-                <input type="hidden" name="instrument_id" value="{{ $instrument->getId() }}">
                 <div class="mb-3">
                     <label for="content" class="form-label">{{ __('messages.review_content') }}</label>
                     <textarea 
@@ -68,9 +67,22 @@
 
     @forelse ($reviews as $review)
         <div class="border-bottom py-3">
-            <strong>{{ $review->getUser()->getName() }}</strong>
-            <small class="text-muted">— {{ $review->getCreatedAt() }}</small>
-            <p class="mb-0">{{ $review->getContent() }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>{{ $review->getUser()->getName() }}</strong>
+                    <small class="text-muted">— {{ $review->getCreatedAt() }}</small>
+                </div>
+
+                @if (auth()->check() && auth()->user()->getId() === $review->getUserId())
+                    <div class="d-flex gap-2">
+                        <a href="{{ route('review.edit', $review->getId()) }}" class="btn btn-sm btn-outline-secondary">
+                            {{ __('messages.edit') }}
+                        </a>
+                    </div>
+                @endif
+            </div>
+
+            <p class="mb-0 mt-1">{{ $review->getContent() }}</p>
         </div>
     @empty
         <p>{{ __('messages.no_reviews') }}</p>

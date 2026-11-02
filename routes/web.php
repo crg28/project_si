@@ -51,6 +51,8 @@ Route::middleware('auth')->group(function () {
 
     // Reviews routes
     Route::post('/reviews/{id}', [ReviewController::class, 'store'])->name('review.store');
+    Route::get('/reviews/{id}/edit', [ReviewController::class, 'edit'])->name('review.edit');
+    Route::put('/reviews/{id}', [ReviewController::class, 'update'])->name('review.update');
 });
 
 // Admin routes

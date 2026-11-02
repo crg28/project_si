@@ -98,4 +98,9 @@ return [
     'write_review_placeholder' => 'Comparte tu opinión sobre este instrumento...',
     'submit_review' => 'Publicar Reseña',
     'review_created_success' => '¡Tu reseña ha sido publicada con éxito!',
+    'edit_review' => 'Editar Reseña',
+    'update_review' => 'Actualizar Reseña',
+    'confirm_delete_review' => '¿Estás seguro de que deseas eliminar esta reseña?',
+    'review_updated_success' => '¡Reseña actualizada con éxito!',
+    'review_deleted_success' => '¡Reseña eliminada con éxito!',
 ];
