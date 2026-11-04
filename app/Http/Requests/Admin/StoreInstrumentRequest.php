@@ -15,12 +15,16 @@ class StoreInstrumentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'array'],
+            'name.es' => ['required', 'string', 'max:255'],
+            'name.en' => ['required', 'string', 'max:255'],
             'model' => ['required', 'string', 'max:255'],
+            'category' => ['required', 'array'],
+            'category.es' => ['required', 'string', 'max:255'],
+            'category.en' => ['required', 'string', 'max:255'],
             'price' => ['required', 'numeric', 'min:0'],
             'stock' => ['required', 'integer', 'min:0'],
-            'category' => ['required', 'string', 'max:255'],
-            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
+            'image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
         ];
     }
 }

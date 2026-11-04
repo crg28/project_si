@@ -48,14 +48,17 @@ class Instrument extends Model
         return $this->attributes['id'];
     }
 
-    public function getName(): string
+    public function getName(?string $locale = null): string
     {
-        return $this->attributes['name'];
+        $names = $this->name ?? [];
+        $targetLocale = $locale ?? app()->getLocale();
+
+        return $names[$targetLocale] ?? $names['es'] ?? '';
     }
 
-    public function setName(string $name): void
+    public function setName(array $name): void
     {
-        $this->attributes['name'] = $name;
+        $this->attributes['name'] = json_encode($name);
     }
 
     public function getModel(): string
@@ -98,14 +101,17 @@ class Instrument extends Model
         $this->attributes['imagePath'] = $imagePath;
     }
 
-    public function getCategory(): string
+    public function getCategory(?string $locale = null): string
     {
-        return $this->attributes['category'];
+        $categories = $this->category ?? [];
+        $targetLocale = $locale ?? app()->getLocale();
+
+        return $categories[$targetLocale] ?? $categories['es'] ?? '';
     }
 
-    public function setCategory(string $category): void
+    public function setCategory(array $category): void
     {
-        $this->attributes['category'] = $category;
+        $this->attributes['category'] = json_encode($category);
     }
 
     public function getCreatedAt(): string
