@@ -10,6 +10,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\LanguageController;
+
 use Illuminate\Support\Facades\Route;
 
 // Authors: Santiago Arellano, Juan Cortes & Carlos Restrepo
@@ -80,3 +82,6 @@ Route::middleware(['auth', 'admin'])->group(function ()
     Route::put('/admin/users/{id}', [AdminUserController::class, 'update'])->name('admin.user.update');
     Route::delete('/admin/users/{id}', [AdminUserController::class, 'destroy'])->name('admin.user.destroy');
 });
+
+// Switch Language
+Route::get('/lang/{locale}', [LanguageController::class, 'switch'])->name('lang.switch');

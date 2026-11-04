@@ -83,6 +83,11 @@
                                 </div>
                             </li>
                         @endguest
+
+                        <div class="d-flex gap-2">
+                            <a href="{{ route('lang.switch', 'es') }}" class="btn btn-sm btn-outline-primary">ES</a>
+                            <a href="{{ route('lang.switch', 'en') }}" class="btn btn-sm btn-outline-primary">EN</a>
+                        </div>
                     </ul>
                 </div>
             </div>
