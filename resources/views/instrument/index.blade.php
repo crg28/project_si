@@ -6,11 +6,17 @@
 
     <form method="GET" action="{{ route('instrument.index') }}" class="row g-3 mb-4">
         <div class="col-md-5">
-            <input type="text" name="name" class="form-control" placeholder="{{ __('messages.search') }}" value="{{ $selectedName }}">
+            <input 
+                type="text" 
+                name="name" 
+                class="form-control" 
+                placeholder="{{ __('messages.search') }}" 
+                value="{{ $selectedName }}"
+            >
         </div>
 
         <div class="col-md-4">
-            <select name="category" class="form-control">
+            <select name="category" class="form-control" onchange="this.form.submit()">
                 <option value="">{{ __('messages.category') }}</option>
                 @foreach ($categories as $category)
                     <option value="{{ $category }}" {{ $selectedCategory === $category ? 'selected' : '' }}>
@@ -20,8 +26,14 @@
             </select>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-3 d-flex gap-2">
             <button type="submit" class="btn btn-primary w-100">{{ __('messages.search') }}</button>
+
+            @if($selectedName || $selectedCategory)
+                <a href="{{ route('instrument.index') }}" class="btn btn-outline-secondary" title="{{ __('messages.clear') }}">
+                    ✕
+                </a>
+            @endif
         </div>
     </form>
 

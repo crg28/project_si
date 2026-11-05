@@ -37,6 +37,11 @@ class Instrument extends Model
         'category',
     ];
 
+    protected $casts = [
+        'name' => 'array',
+        'category' => 'array',
+    ];
+
     /*
     |--------------------------------------------------------------------------
     | ATTRIBUTE GETTERS & SETTERS

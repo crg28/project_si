@@ -17,14 +17,12 @@ class Order extends Model
     /**
      * ORDER ATTRIBUTES
      * $this->attributes['id'] - int
-     * $this->attributes['date'] - string
      * $this->attributes['total'] - float
      * $this->attributes['user_id'] - int - fk user
      * $this->attributes['created_at'] - string - creation timestamp - by default
      * $this->attributes['updated_at'] - string - last update timestamp - by default
      */
     protected $fillable = [
-        'date',
         'total',
         'user_id',
     ];
@@ -37,16 +35,6 @@ class Order extends Model
     public function getId(): int
     {
         return $this->attributes['id'];
-    }
-
-    public function getDate(): string
-    {
-        return $this->attributes['date'];
-    }
-
-    public function setDate(string $date): void
-    {
-        $this->attributes['date'] = $date;
     }
 
     public function getTotal(): float
