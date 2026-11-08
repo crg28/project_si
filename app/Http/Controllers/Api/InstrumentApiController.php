@@ -16,6 +16,8 @@ class InstrumentApiController extends Controller
 
     private const DEFAULT_LOCALE = 'es';
 
+    private const TOP_SELLING_LIMIT = 3;
+
     public function index(FilterInstrumentRequest $request): JsonResponse
     {
         $query = Instrument::query()->where('stock', '>', 0);
@@ -23,6 +25,17 @@ class InstrumentApiController extends Controller
         $this->applyFilters($query, $request);
 
         return response()->json(InstrumentResource::collection($query->get()), 200);
+    }
+
+    public function topSelling(): JsonResponse
+    {
+        $instruments = Instrument::query()
+            ->withSum('instrumentItems', 'quantity')
+            ->orderByDesc('instrument_items_sum_quantity')
+            ->take(self::TOP_SELLING_LIMIT)
+            ->get();
+
+        return response()->json(InstrumentResource::collection($instruments), 200);
     }
 
     private function applyFilters(Builder $query, FilterInstrumentRequest $request): void

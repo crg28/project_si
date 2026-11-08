@@ -7,3 +7,4 @@ use Illuminate\Support\Facades\Route;
 
 // Instrument API routes
 Route::get('/instruments', [InstrumentApiController::class, 'index'])->name('api.instrument.index');
+Route::get('/instruments/top-selling', [InstrumentApiController::class, 'topSelling'])->name('api.instrument.topSelling');
