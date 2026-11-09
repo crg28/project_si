@@ -59,6 +59,16 @@
                 @error('image') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
+            <div class="mb-3">
+                <label for="youtube_video_id" class="form-label">{{ __('messages.youtube_video') }}</label>
+                <input type="text" name="youtube_video_id" id="youtube_video_id"
+                    class="form-control @error('youtube_video_id') is-invalid @enderror"
+                    value="{{ old('youtube_video_id') }}"
+                    placeholder="https://www.youtube.com/watch?v=...">
+                <div class="form-text">{{ __('messages.youtube_video_help') }}</div>
+                @error('youtube_video_id') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+
             <button type="submit" class="btn btn-primary">{{ __('messages.save') }}</button>
             <a href="{{ route('admin.instrument.index') }}" class="btn btn-secondary">{{ __('messages.cancel') }}</a>
         </form>

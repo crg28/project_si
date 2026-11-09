@@ -58,6 +58,12 @@ return [
     'instrument_updated' => 'Instrumento actualizado exitosamente',
     'instrument_deleted' => 'Instrumento eliminado exitosamente',
     'leave_empty_to_keep_image' => 'Deja este campo vacío para mantener la imagen actual',
+    'youtube_video'      => 'Video de YouTube (opcional)',
+    'youtube_video_help' => 'Pega el enlace del video o solo su ID. Debe permitir ser incrustado en otras páginas.',
+    'youtube_video_invalid_format' => 'El enlace o ID de YouTube no es válido.',
+    'youtube_video_not_found'      => 'El video no existe, es privado o fue eliminado.',
+    'youtube_video_not_embeddable' => 'El dueño del video no permite incrustarlo en otras páginas.',
+    'youtube_video_check_failed'   => 'No se pudo verificar el video con YouTube. Inténtalo de nuevo.',
 
     // --- Reviews ---
     'reviews' => 'Reseñas',

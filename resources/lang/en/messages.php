@@ -58,6 +58,12 @@ return [
     'instrument_updated' => 'Instrument updated successfully',
     'instrument_deleted' => 'Instrument deleted successfully',
     'leave_empty_to_keep_image' => 'Leave empty to keep current image',
+    'youtube_video'      => 'YouTube video (optional)',
+    'youtube_video_help' => 'Paste the video link or just its ID. It must allow embedding on other sites.',
+    'youtube_video_invalid_format' => 'The YouTube link or ID is not valid.',
+    'youtube_video_not_found'      => 'The video does not exist, is private, or has been deleted.',
+    'youtube_video_not_embeddable' => 'The video owner does not allow embedding it on other sites.',
+    'youtube_video_check_failed'   => 'The video could not be verified with YouTube. Please try again.',
 
     // --- Reviews ---
     'reviews' => 'Reviews',
