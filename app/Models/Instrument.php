@@ -208,6 +208,6 @@ class Instrument extends Model
             return null;
         }
 
-        return "https://www.youtube-nocookie.com/embed/{$this->youtube_video_id}?rel=0";
+        return "https://www.youtube-nocookie.com/embed/{$this->getYoutubeVideoId()}?rel=0";
     }
 }

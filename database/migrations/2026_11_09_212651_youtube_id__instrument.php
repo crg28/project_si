@@ -11,7 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::table('instruments', function (Blueprint $table) {
+            $table->string('youtube_video_id', 11)->nullable();
+        });
     }
 
     /**
