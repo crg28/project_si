@@ -17,7 +17,6 @@ return new class extends Migration
             $table->integer('stock');
             $table->string('imagePath')->nullable();
             $table->string('category');
-            $table->string('youtube_video_id', 11)->nullable();
             $table->timestamps();
         });
     }
