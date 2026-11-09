@@ -21,6 +21,7 @@ class Instrument extends Model
      * $this->attributes['stock'] - int
      * $this->attributes['imagePath'] - string
      * $this->attributes['category'] - string
+     * $this->attributes['youtube_video_id'] - string
      * $this->attributes['created_at'] - string - creation timestamp - by default
      * $this->attributes['updated_at'] - string - last update timestamp - by default
      * 
@@ -35,6 +36,7 @@ class Instrument extends Model
         'stock',
         'imagePath',
         'category',
+        'youtube_video_id',
     ];
 
     protected $casts = [
@@ -119,6 +121,11 @@ class Instrument extends Model
         $this->attributes['category'] = json_encode($category);
     }
 
+    public function getYoutubeVideoId(): ?string
+    {
+        return $this->attributes['youtube_video_id'];
+    }
+
     public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
@@ -193,5 +200,14 @@ class Instrument extends Model
 
         $this->setStock(max(0, $newStock));
         $this->save();
+    }
+
+    public function getYoutubeEmbedUrlAttribute(): ?string
+    {
+        if (! $this->getYoutubeVideoId()) {
+            return null;
+        }
+
+        return "https://www.youtube-nocookie.com/embed/{$this->youtube_video_id}?rel=0";
     }
 }
