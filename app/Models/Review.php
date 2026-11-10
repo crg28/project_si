@@ -14,33 +14,31 @@ class Review extends Model
     /**
      * REVIEW ATTRIBUTES
      * $this->attributes['id'] - int
-     * $this->attributes['date'] - string
      * $this->attributes['content'] - string
      * $this->attributes['user_id'] - int - fk user
      * $this->attributes['instrument_id'] - int - fk instrument
      * $this->attributes['created_at'] - string - creation timestamp - by default
      * $this->attributes['updated_at'] - string - last update timestamp - by default
+     * 
+     * REVIEW RELATIONS
+     * $this->user - User - associated user
+     * $this->instrument - Instrument - associated instrument
      */
     protected $fillable = [
-        'date',
         'content',
         'user_id',
         'instrument_id',
     ];
 
+    /*
+    |--------------------------------------------------------------------------
+    | ATTRIBUTE GETTERS & SETTERS
+    |--------------------------------------------------------------------------
+    */
+
     public function getId(): int
     {
         return $this->attributes['id'];
-    }
-
-    public function getDate(): string
-    {
-        return $this->attributes['date'];
-    }
-
-    public function setDate(string $date): void
-    {
-        $this->attributes['date'] = $date;
     }
 
     public function getContent(): string
@@ -93,6 +91,12 @@ class Review extends Model
         $this->attributes['updated_at'] = $updatedAt;
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | ELOQUENT RELATIONS
+    |--------------------------------------------------------------------------
+    */
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -101,5 +105,31 @@ class Review extends Model
     public function instrument(): BelongsTo
     {
         return $this->belongsTo(Instrument::class);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | RELATION GETTERS & SETTERS
+    |--------------------------------------------------------------------------
+    */
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
+    }
+
+    public function getInstrument(): Instrument
+    {
+        return $this->instrument;
+    }
+
+    public function setInstrument(Instrument $instrument): void
+    {
+        $this->instrument = $instrument;
     }
 }

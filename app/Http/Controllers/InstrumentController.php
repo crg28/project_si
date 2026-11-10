@@ -13,18 +13,26 @@ class InstrumentController extends Controller
 {
     public function index(Request $request): View
     {
+        $locale = app()->getLocale();
         $query = Instrument::query();
 
         if ($request->filled('name')) {
-            $query->where('name', 'like', '%'.$request->input('name').'%');
+            $query->where("name->{$locale}", 'like', '%'.$request->input('name').'%');
         }
 
         if ($request->filled('category')) {
-            $query->where('category', $request->input('category'));
+            $query->where("category->{$locale}", $request->input('category'));
         }
 
+        $viewData = [];
         $viewData['instruments'] = $query->get();
-        $viewData['categories'] = Instrument::select('category')->distinct()->pluck('category');
+
+        $viewData['categories'] = Instrument::all()
+            ->map(fn ($instrument) => $instrument->getCategory())
+            ->filter()
+            ->unique()
+            ->values();
+
         $viewData['selectedName'] = $request->input('name', '');
         $viewData['selectedCategory'] = $request->input('category', '');
 
@@ -43,11 +51,11 @@ class InstrumentController extends Controller
 
     public function topSelling(): View
     {
-        $topSellings = Instrument::withSum('instrumentItems', 'quantity')
+        $topSellingInstruments = Instrument::withSum('instrumentItems', 'quantity')
             ->orderByDesc('instrument_items_sum_quantity')
             ->take(3)
             ->get();
-        $viewData['instruments'] = $topSellings;
+        $viewData['instruments'] = $topSellingInstruments;
 
         return view('instrument.topSelling', $viewData);
     }
@@ -55,12 +63,12 @@ class InstrumentController extends Controller
     // Author: Juan Cortes
     public function mostReviewed(): View
     {
-       $topReviewed =Instrument::withCount('reviews')
+       $topReviewedInstruments =Instrument::withCount('reviews')
             ->orderByDesc('reviews_count')
             ->take(3)
             ->get();
 
-        $viewData['instruments'] = $topReviewed;
+        $viewData['instruments'] = $topReviewedInstruments;
 
         return view('instrument.mostReviewed', $viewData);
     }

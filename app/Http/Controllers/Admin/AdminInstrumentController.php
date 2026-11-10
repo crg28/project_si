@@ -16,19 +16,27 @@ class AdminInstrumentController extends Controller
 {
     public function index(Request $request): View
     {
+        $locale = app()->getLocale();
         $query = Instrument::query();
 
         if ($request->filled('name')) {
-            $query->where('name', 'like', '%'.$request->input('name').'%');
+            $query->where("name->{$locale}", 'like', '%'.$request->input('name').'%');
         }
 
         if ($request->filled('category')) {
-            $query->where('category', $request->input('category'));
+            $query->where("category->{$locale}", $request->input('category'));
         }
 
         $viewData = [];
         $viewData['instruments'] = $query->get();
-        $viewData['categories'] = Instrument::select('category')->distinct()->pluck('category');
+
+        $viewData['categories'] = Instrument::pluck('category')
+            ->map(fn ($category) => $category[$locale] ?? null)
+            ->filter()
+            ->unique()
+            ->sort()
+            ->values();
+
         $viewData['selectedName'] = $request->input('name', '');
         $viewData['selectedCategory'] = $request->input('category', '');
 

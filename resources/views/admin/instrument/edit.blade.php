@@ -12,10 +12,18 @@
             @csrf
             @method('PUT')
 
+            <!-- Nombre (ES) -->
             <div class="mb-3">
-                <label for="name" class="form-label">{{ __('messages.name') }}</label>
-                <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $instrument->getName()) }}">
-                @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+                <label for="name_es" class="form-label">{{ __('messages.name') }} (ES)</label>
+                <input type="text" name="name[es]" id="name_es" class="form-control @error('name.es') is-invalid @enderror" value="{{ old('name.es', $instrument->getName('es')) }}">
+                @error('name.es') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+
+            <!-- Nombre (EN) -->
+            <div class="mb-3">
+                <label for="name_en" class="form-label">{{ __('messages.name') }} (EN)</label>
+                <input type="text" name="name[en]" id="name_en" class="form-control @error('name.en') is-invalid @enderror" value="{{ old('name.en', $instrument->getName('en')) }}">
+                @error('name.en') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
             <div class="mb-3">
@@ -24,10 +32,18 @@
                 @error('model') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
+            <!-- Category (ES) -->
             <div class="mb-3">
-                <label for="category" class="form-label">{{ __('messages.category') }}</label>
-                <input type="text" name="category" id="category" class="form-control @error('category') is-invalid @enderror" value="{{ old('category', $instrument->getCategory()) }}">
-                @error('category') <span class="text-danger">{{ $message }}</span> @enderror
+                <label for="category_es" class="form-label">{{ __('messages.category') }} (ES)</label>
+                <input type="text" name="category[es]" id="category_es" class="form-control @error('category.es') is-invalid @enderror" value="{{ old('category.es', $instrument->getCategory('es')) }}">
+                @error('category.es') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+
+            <!-- Category (EN) -->
+            <div class="mb-3">
+                <label for="category_en" class="form-label">{{ __('messages.category') }} (EN)</label>
+                <input type="text" name="category[en]" id="category_en" class="form-control @error('category.en') is-invalid @enderror" value="{{ old('category.en', $instrument->getCategory('en')) }}">
+                @error('category.en') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
             <div class="mb-3">
@@ -47,6 +63,16 @@
                 <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror">
                 <small class="text-muted">{{ __('messages.leave_empty_to_keep_image') }}</small>
                 @error('image') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="youtube_video_id" class="form-label">{{ __('messages.youtube_video') }}</label>
+                <input type="text" name="youtube_video_id" id="youtube_video_id"
+                    class="form-control @error('youtube_video_id') is-invalid @enderror"
+                    value="{{ old('youtube_video_id') }}"
+                    placeholder="https://www.youtube.com/watch?v=...">
+                <div class="form-text">{{ __('messages.youtube_video_help') }}</div>
+                @error('youtube_video_id') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
             <button type="submit" class="btn btn-primary">{{ __('messages.save') }}</button>

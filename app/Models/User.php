@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -23,6 +24,11 @@ class User extends Authenticatable
      * $this->attributes['role'] - string - roles: admin or user
      * $this->attributes['created_at'] - string - creation timestamp
      * $this->attributes['updated_at'] - string - last update timestamp
+     * 
+     * USER RELATIONS
+     * $this->orders - Collection|Order[] - associated orders
+     * $this->payments - Collection|Payment[] - associated payments
+     * $this->reviews - Collection|Review[] - associated reviews
      */
     protected $fillable = [
         'name',
@@ -37,6 +43,12 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    /*
+    |--------------------------------------------------------------------------
+    | ATTRIBUTE GETTERS & SETTERS
+    |--------------------------------------------------------------------------
+    */
 
     public function getId(): int
     {
@@ -123,6 +135,12 @@ class User extends Authenticatable
         $this->attributes['updated_at'] = $updatedAt;
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | ELOQUENT RELATIONS
+    |--------------------------------------------------------------------------
+    */
+
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
@@ -136,5 +154,52 @@ class User extends Authenticatable
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | RELATION GETTERS & SETTERS
+    |--------------------------------------------------------------------------
+    */
+
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function setOrders(Collection $orders): void
+    {
+        $this->orders = $orders;
+    }
+
+    public function getPayments(): Collection
+    {
+        return $this->payments;
+    }
+
+    public function setPayments(Collection $payments): void
+    {
+        $this->payments = $payments;
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | BUSINESS LOGIC & UTILITIES
+    |--------------------------------------------------------------------------
+    */
+
+    public function isAdmin(): bool
+    {
+        return $this->getRole() === 'admin';
     }
 }

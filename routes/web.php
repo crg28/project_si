@@ -9,6 +9,9 @@ use App\Http\Controllers\InstrumentController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\LanguageController;
+
 use Illuminate\Support\Facades\Route;
 
 // Authors: Santiago Arellano, Juan Cortes & Carlos Restrepo
@@ -43,10 +46,18 @@ Route::middleware('auth')->group(function () {
 
     // Order routes
     Route::get('/orders/{id}', [OrderController::class, 'show'])->name('order.show');
-    Route::get('/orders/{id}/pdf', [OrderController::class, 'downloadPdf'])->name('order.downloadPdf');
+    Route::get('/orders/{id}/report/{format}', [OrderController::class, 'download'])
+        ->whereIn('format', ['pdf', 'excel'])
+        ->name('order.download');
 
     // Cart routes
     Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+
+    // Reviews routes
+    Route::post('/reviews/{id}', [ReviewController::class, 'store'])->name('review.store');
+    Route::get('/reviews/{id}/edit', [ReviewController::class, 'edit'])->name('review.edit');
+    Route::put('/reviews/{id}', [ReviewController::class, 'update'])->name('review.update');
+    Route::delete('/reviews/{id}', [ReviewController::class, 'delete'])->name('review.delete');
 });
 
 // Admin routes
@@ -73,3 +84,6 @@ Route::middleware(['auth', 'admin'])->group(function ()
     Route::put('/admin/users/{id}', [AdminUserController::class, 'update'])->name('admin.user.update');
     Route::delete('/admin/users/{id}', [AdminUserController::class, 'destroy'])->name('admin.user.destroy');
 });
+
+// Switch Language
+Route::get('/lang/{locale}', [LanguageController::class, 'switch'])->name('lang.switch');

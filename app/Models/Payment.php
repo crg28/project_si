@@ -15,12 +15,16 @@ class Payment extends Model
      * PAYMENT ATTRIBUTES
      * $this->attributes['id'] - int
      * $this->attributes['cardNumber'] - string
-     * $this->attributes['cardExpiration'] - date
+     * $this->attributes['cardExpiration'] - string
      * $this->attributes['cvv'] - int
      * $this->attributes['order_id'] - int|null - fk order (can be null)
      * $this->attributes['user_id'] - int - fk user
      * $this->attributes['created_at'] - string - creation timestamp - by default
      * $this->attributes['updated_at'] - string - last update timestamp - by default
+     * 
+     * PAYMENT RELATIONS
+     * $this->order - Order|null - associated order
+     * $this->user - User - associated user
      */
     protected $fillable = [
         'cardNumber',
@@ -29,6 +33,12 @@ class Payment extends Model
         'order_id',
         'user_id',
     ];
+
+    /*
+    |--------------------------------------------------------------------------
+    | ATTRIBUTE GETTERS & SETTERS
+    |--------------------------------------------------------------------------
+    */
 
     public function getId(): int
     {
@@ -40,7 +50,7 @@ class Payment extends Model
         return $this->attributes['cardNumber'];
     }
 
-    public function setCardNumber($cardNumber): void
+    public function setCardNumber(string $cardNumber): void
     {
         $this->attributes['cardNumber'] = $cardNumber;
     }
@@ -50,7 +60,7 @@ class Payment extends Model
         return $this->attributes['cardExpiration'];
     }
 
-    public function setCardExpiration($cardExpiration): void
+    public function setCardExpiration(string $cardExpiration): void
     {
         $this->attributes['cardExpiration'] = $cardExpiration;
     }
@@ -60,7 +70,7 @@ class Payment extends Model
         return $this->attributes['cvv'];
     }
 
-    public function setCvv($cvv): void
+    public function setCvv(int $cvv): void
     {
         $this->attributes['cvv'] = $cvv;
     }
@@ -85,21 +95,6 @@ class Payment extends Model
         $this->attributes['user_id'] = $userId;
     }
 
-    public function process(): bool
-    {
-        return true;
-    }
-
-    public function order(): BelongsTo
-    {
-        return $this->belongsTo(Order::class);
-    }
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
-
     public function getCreatedAt(): string
     {
         return $this->attributes['created_at'];
@@ -118,5 +113,58 @@ class Payment extends Model
     public function setUpdatedAt($updatedAt): void
     {
         $this->attributes['updated_at'] = $updatedAt;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | ELOQUENT RELATIONS
+    |--------------------------------------------------------------------------
+    */
+
+    public function order(): BelongsTo
+    {
+        return $this->belongsTo(Order::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | RELATION GETTERS & SETTERS
+    |--------------------------------------------------------------------------
+    */
+
+    public function getOrder(): ?Order
+    {
+        return $this->order;
+    }
+
+    public function setOrder(?Order $order): void
+    {
+        $this->order = $order;
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | BUSINESS LOGIC & UTILITIES
+    |--------------------------------------------------------------------------
+    */
+
+    public function process(): bool
+    {
+        return true;
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>{{ __('messages.order') }} #{{ $order->getId() }}</h1>
-    <p>{{ __('messages.order_date') }}: {{ $order->getDate() }}</p>
+    <p>{{ __('messages.order_date') }}: {{ $order->getCreatedAt() }}</p>
 
     <table class="table">
         <thead>
@@ -17,7 +17,7 @@
         <tbody>
             @foreach ($items as $item)
                 <tr>
-                    <td>{{ $item->instrument->getName() }}</td>
+                    <td>{{ $item->getInstrument()->getName() }}</td>
                     <td>{{ $item->getQuantity() }}</td>
                     <td>${{ number_format($item->getPrice(), 2) }}</td>
                     <td>${{ number_format($item->calculateSubtotal(), 2) }}</td>
@@ -28,8 +28,12 @@
 
     <h4>{{ __('messages.order_total') }}: ${{ number_format($order->getTotal(), 2) }}</h4>
 
-    <a href="{{ route('order.downloadPdf', $order->getId()) }}" class="btn btn-outline-primary">
+    <a href="{{ route('order.download', [$order->getId(), 'pdf']) }}" class="btn btn-outline-primary">
         {{ __('messages.download_invoice') }}
+    </a>
+
+    <a href="{{ route('order.download', [$order->getId(), 'excel']) }}" class="btn btn-outline-success">
+        {{ __('messages.download_excel') }}
     </a>
 
     <a href="{{ route('instrument.index') }}" class="btn btn-secondary">

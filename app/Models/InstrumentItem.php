@@ -16,10 +16,14 @@ class InstrumentItem extends Model
      * $this->attributes['id'] - int
      * $this->attributes['quantity'] - int
      * $this->attributes['price'] - float
-     * $this->attributes['instrument_id'] - int -fk instrument
+     * $this->attributes['instrument_id'] - int - fk instrument
      * $this->attributes['order_id'] - int - fk order
      * $this->attributes['created_at'] - string - creation timestamp - by default
      * $this->attributes['updated_at'] - string - last update timestamp - by default
+     * 
+     * INSTRUMENT ITEM RELATIONS
+     * $this->instrument - Instrument - associated instrument
+     * $this->order - Order - associated order
      */
     protected $fillable = [
         'quantity',
@@ -27,6 +31,12 @@ class InstrumentItem extends Model
         'instrument_id',
         'order_id',
     ];
+
+    /*
+    |--------------------------------------------------------------------------
+    | ATTRIBUTE GETTERS & SETTERS
+    |--------------------------------------------------------------------------
+    */
 
     public function getId(): int
     {
@@ -93,10 +103,11 @@ class InstrumentItem extends Model
         $this->attributes['updated_at'] = $updatedAt;
     }
 
-    public function calculateSubtotal(): float
-    {
-        return $this->getQuantity() * $this->getPrice();
-    }
+    /*
+    |--------------------------------------------------------------------------
+    | ELOQUENT RELATIONS
+    |--------------------------------------------------------------------------
+    */
 
     public function instrument(): BelongsTo
     {
@@ -106,5 +117,42 @@ class InstrumentItem extends Model
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | RELATION GETTERS & SETTERS
+    |--------------------------------------------------------------------------
+    */
+
+    public function getInstrument(): Instrument
+    {
+        return $this->instrument;
+    }
+
+    public function setInstrument(Instrument $instrument): void
+    {
+        $this->instrument = $instrument;
+    }
+
+    public function getOrder(): Order
+    {
+        return $this->order;
+    }
+
+    public function setOrder(Order $order): void
+    {
+        $this->order = $order;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | BUSINESS LOGIC & UTILITIES
+    |--------------------------------------------------------------------------
+    */
+
+    public function calculateSubtotal(): float
+    {
+        return $this->getQuantity() * $this->getPrice();
     }
 }

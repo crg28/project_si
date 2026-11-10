@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
         $instruments = Instrument::factory(29)->create();
 
         // 3. Orders
-        $orders = Order::factory(15)->create();
+        $orders = Order::factory(15)->recycle($users)->create();
 
         // 4. Instrument Items
         InstrumentItem::factory(20)->create();

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\OrderReport;
 use App\Models\Order;
-use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Http\Response;
 use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Response;
 
-// Author: Carlos Restrepo
+// Author: Santiago Arellano
 class OrderController extends Controller
 {
     public function show(int $id): View
@@ -22,17 +22,8 @@ class OrderController extends Controller
         return view('order.show', $viewData);
     }
 
-    public function downloadPdf(int $id): Response
+    public function download(int $id, OrderReport $report): Response
     {
-        $order = Order::findOrFail($id);
-
-        $viewData = [];
-        $viewData['order'] = $order;
-        $viewData['items'] = $order->instrumentItems;
-        $viewData['user'] = $order->user;
-
-        $pdf = Pdf::loadView('order.invoice', $viewData);
-
-        return $pdf->download('factura-pedido-'.$order->getId().'.pdf');
+        return $report->download(Order::findOrFail($id));
     }
 }
