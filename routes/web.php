@@ -46,7 +46,9 @@ Route::middleware('auth')->group(function () {
 
     // Order routes
     Route::get('/orders/{id}', [OrderController::class, 'show'])->name('order.show');
-    Route::get('/orders/{id}/pdf', [OrderController::class, 'downloadPdf'])->name('order.downloadPdf');
+    Route::get('/orders/{id}/report/{format}', [OrderController::class, 'download'])
+        ->whereIn('format', ['pdf', 'excel'])
+        ->name('order.download');
 
     // Cart routes
     Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');

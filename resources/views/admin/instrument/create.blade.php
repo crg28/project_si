@@ -27,14 +27,14 @@
                 @error('model') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
-            <!-- Categoría (ES) -->
+            <!-- Category (ES) -->
             <div class="mb-3">
                 <label for="category_es" class="form-label">{{ __('messages.category') }} (ES)</label>
                 <input type="text" name="category[es]" id="category_es" class="form-control @error('category.es') is-invalid @enderror" value="{{ old('category.es') }}">
                 @error('category.es') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
 
-            <!-- Categoría (EN) -->
+            <!-- Category (EN) -->
             <div class="mb-3">
                 <label for="category_en" class="form-label">{{ __('messages.category') }} (EN)</label>
                 <input type="text" name="category[en]" id="category_en" class="form-control @error('category.en') is-invalid @enderror" value="{{ old('category.en') }}">

@@ -120,7 +120,6 @@ class CartController extends Controller
             ->firstOrFail();
 
         $order = new Order;
-        $order->setDate(now()->format('Y-m-d'));
         $order->setTotal(0);
         $order->setUserId(auth()->id());
         $order->save();

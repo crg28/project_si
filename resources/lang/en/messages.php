@@ -96,6 +96,7 @@ return [
     'order_created_successfully' => 'Order created successfully',
     'invoice' => 'Invoice',
     'download_invoice' => 'Download invoice',
+    'download_excel' => 'Download Excel',
 
     // --- Payment Methods ---
     'payments' => 'Payment methods',

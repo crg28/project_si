@@ -11,7 +11,7 @@
 <body>
     <h1>{{ __('messages.invoice') }}</h1>
     <p><strong>{{ __('messages.order') }}:</strong> #{{ $order->getId() }}</p>
-    <p><strong>{{ __('messages.order_date') }}:</strong> {{ $order->getDate() }}</p>
+    <p><strong>{{ __('messages.order_date') }}:</strong> {{ $order->getCreatedAt() }}</p>
 
     <hr>
 

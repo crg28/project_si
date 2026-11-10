@@ -72,7 +72,7 @@ class InstrumentFactory extends Factory
                     'youtube_video_id' => 'FA-DaxRRxds',
                 ],
 
-                // Baterías
+                // Drums
                 [
                     'name' => ['es' => 'Pearl Export Series', 'en' => 'Pearl Export Series'],
                     'category' => ['es' => 'Batería', 'en' => 'Drums'],

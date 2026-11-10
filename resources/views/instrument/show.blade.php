@@ -32,7 +32,7 @@
                 @endif
             </div>
 
-            {{-- Columna derecha: información y compra --}}
+            {{-- Right column: information and purchase --}}
             <div class="col-lg-5">
                 <span class="badge text-bg-secondary mb-2">{{ $instrument->getCategory() }}</span>
                 <h1 class="h2 fw-bold mb-1">{{ $instrument->getName() }}</h1>
