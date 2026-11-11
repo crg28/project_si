@@ -24,7 +24,7 @@ class Instrument extends Model
      * $this->attributes['youtube_video_id'] - string
      * $this->attributes['created_at'] - string - creation timestamp - by default
      * $this->attributes['updated_at'] - string - last update timestamp - by default
-     * 
+     *
      * INSTRUMENT RELATIONS
      * $this->instrumentItems - Collection|InstrumentItem[] - associated instrument items
      * $this->reviews - Collection|Review[] - associated reviews

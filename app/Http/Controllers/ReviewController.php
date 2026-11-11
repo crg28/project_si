@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreReviewRequest;
 use App\Models\Review;
 use App\Models\User;
-use App\Http\Requests\StoreReviewRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -18,7 +18,7 @@ class ReviewController extends Controller
         /** @var User $user */
         $user = auth()->user();
 
-        $review = new Review();
+        $review = new Review;
         $review->setContent($validated['content']);
         $review->setUserId($user->getId());
         $review->setInstrumentId($instrumentId);

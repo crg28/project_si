@@ -19,7 +19,7 @@ class Review extends Model
      * $this->attributes['instrument_id'] - int - fk instrument
      * $this->attributes['created_at'] - string - creation timestamp - by default
      * $this->attributes['updated_at'] - string - last update timestamp - by default
-     * 
+     *
      * REVIEW RELATIONS
      * $this->user - User - associated user
      * $this->instrument - Instrument - associated instrument

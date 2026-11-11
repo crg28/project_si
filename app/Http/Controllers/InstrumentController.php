@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Instrument;
-use App\Models\InstrumentItem;
-use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -63,7 +61,7 @@ class InstrumentController extends Controller
     // Author: Juan Cortes
     public function mostReviewed(): View
     {
-       $topReviewedInstruments =Instrument::withCount('reviews')
+        $topReviewedInstruments = Instrument::withCount('reviews')
             ->orderByDesc('reviews_count')
             ->take(3)
             ->get();

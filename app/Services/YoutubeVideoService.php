@@ -12,7 +12,9 @@ use RuntimeException;
 class YouTubeVideoService
 {
     private const VIDEOS_ENDPOINT = 'https://www.googleapis.com/youtube/v3/videos';
+
     private const MAX_IDS_PER_REQUEST = 50;
+
     private const VIDEO_ID_PATTERN = '/^[A-Za-z0-9_-]{11}$/D';
 
     /**
@@ -20,7 +22,7 @@ class YouTubeVideoService
      *
      * @param  string[]  $videoIds  Up to 50 video IDs.
      * @return array<string, array{title: string, thumbnailUrl: ?string, isEmbeddable: bool}>
-     *         Indexed by video ID. Deleted or private videos are not included in the result.
+     *                                                                                        Indexed by video ID. Deleted or private videos are not included in the result.
      */
     public function fetchVideosMetadata(array $videoIds): array
     {
@@ -40,7 +42,7 @@ class YouTubeVideoService
 
         if (count($videoIds) > self::MAX_IDS_PER_REQUEST) {
             throw new InvalidArgumentException(
-                'YouTube permite máximo ' . self::MAX_IDS_PER_REQUEST . ' IDs por llamada.'
+                'YouTube permite máximo '.self::MAX_IDS_PER_REQUEST.' IDs por llamada.'
             );
         }
 
@@ -50,7 +52,7 @@ class YouTubeVideoService
                 ->withHeaders(['X-Goog-Api-Key' => $apiKey])
                 ->get(self::VIDEOS_ENDPOINT, [
                     'part' => 'snippet,status',
-                    'id'   => implode(',', $videoIds),
+                    'id' => implode(',', $videoIds),
                 ])
                 ->throw()
                 ->json();
@@ -66,7 +68,7 @@ class YouTubeVideoService
         } catch (ConnectionException $exception) {
             // The request never reached the API (SSL, DNS, timeout, ...)
             throw new RuntimeException(
-                'No se pudo conectar con la API de YouTube: ' . $exception->getMessage(),
+                'No se pudo conectar con la API de YouTube: '.$exception->getMessage(),
                 previous: $exception
             );
         }
@@ -77,7 +79,7 @@ class YouTubeVideoService
             $thumbnails = $item['snippet']['thumbnails'] ?? [];
 
             $metadataByVideoId[$item['id']] = [
-                'title'        => $item['snippet']['title'] ?? '',
+                'title' => $item['snippet']['title'] ?? '',
                 // Falls back to smaller thumbnails if the high-resolution one is missing
                 'thumbnailUrl' => $thumbnails['high']['url']
                     ?? $thumbnails['medium']['url']
@@ -109,7 +111,7 @@ class YouTubeVideoService
 
         // Add the scheme if it is missing so parse_url can handle it
         if (! preg_match('~^https?://~i', $urlOrId)) {
-            $urlOrId = 'https://' . $urlOrId;
+            $urlOrId = 'https://'.$urlOrId;
         }
 
         $urlParts = parse_url($urlOrId);

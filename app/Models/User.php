@@ -24,7 +24,7 @@ class User extends Authenticatable
      * $this->attributes['role'] - string - roles: admin or user
      * $this->attributes['created_at'] - string - creation timestamp
      * $this->attributes['updated_at'] - string - last update timestamp
-     * 
+     *
      * USER RELATIONS
      * $this->orders - Collection|Order[] - associated orders
      * $this->payments - Collection|Payment[] - associated payments

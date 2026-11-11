@@ -20,7 +20,7 @@ class InstrumentItem extends Model
      * $this->attributes['order_id'] - int - fk order
      * $this->attributes['created_at'] - string - creation timestamp - by default
      * $this->attributes['updated_at'] - string - last update timestamp - by default
-     * 
+     *
      * INSTRUMENT ITEM RELATIONS
      * $this->instrument - Instrument - associated instrument
      * $this->order - Order - associated order

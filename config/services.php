@@ -38,4 +38,8 @@ return [
     'youtube' => [
         'key' => env('YOUTUBE_API_KEY'),
     ],
+
+    'partner' => [
+        'products_url' => env('PARTNER_PRODUCTS_URL', 'http://lumeskin.duckdns.org/api/products'),
+    ],
 ];

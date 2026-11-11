@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Resources\EmbeddableYoutubeVideo;
 use App\Services\YouTubeVideoService;
-
+use Illuminate\Foundation\Http\FormRequest;
 
 // Author: Carlos Restrepo
 class StoreInstrumentRequest extends FormRequest
@@ -28,7 +27,7 @@ class StoreInstrumentRequest extends FormRequest
             'price' => ['required', 'numeric', 'min:0'],
             'stock' => ['required', 'integer', 'min:0'],
             'image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
-            'youtube_video_id' => ['bail', 'nullable', 'string', 'regex:/^[A-Za-z0-9_-]{11}$/D', new EmbeddableYoutubeVideo()],
+            'youtube_video_id' => ['bail', 'nullable', 'string', 'regex:/^[A-Za-z0-9_-]{11}$/D', new EmbeddableYoutubeVideo],
         ];
     }
 

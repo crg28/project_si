@@ -41,6 +41,9 @@
                             <a class="nav-link" href="{{ route('instrument.mostReviewed') }}">{{ __('messages.most_reviewed') }}</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('partner.products') }}">{{ __('messages.partner_products') }}</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('cart.index') }}">{{ __('messages.cart') }}</a>
                         </li>
                     </ul>

@@ -21,7 +21,7 @@ class Payment extends Model
      * $this->attributes['user_id'] - int - fk user
      * $this->attributes['created_at'] - string - creation timestamp - by default
      * $this->attributes['updated_at'] - string - last update timestamp - by default
-     * 
+     *
      * PAYMENT RELATIONS
      * $this->order - Order|null - associated order
      * $this->user - User - associated user
