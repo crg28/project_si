@@ -1,0 +1,20 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Docker login
+        run: echo "${{ secrets.DOCKERHUB_PASS }}" | docker login -u "${{ secrets.DOCKERHUB_USER }}" --password-stdin
+
+      - name: Build the Docker image
+        run: docker build . --tag ${{ secrets.DOCKERHUB_USER }}/project_si:latest
+
+      - name: Push the Docker image
+        run: docker push ${{ secrets.DOCKERHUB_USER }}/project_si:latest
