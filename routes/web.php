@@ -6,12 +6,12 @@ use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InstrumentController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\LanguageController;
-
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PartnerProductController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 // Authors: Santiago Arellano, Juan Cortes & Carlos Restrepo
@@ -27,6 +27,9 @@ Route::get('/instruments', [InstrumentController::class, 'index'])->name('instru
 Route::get('/instruments/top-selling', [InstrumentController::class, 'topSelling'])->name('instrument.topSelling');
 Route::get('/instruments/most-reviewed', [InstrumentController::class, 'mostReviewed'])->name('instrument.mostReviewed');
 Route::get('/instruments/{id}', [InstrumentController::class, 'show'])->name('instrument.show');
+
+// Partner products route (team 8 service)
+Route::get('/partner-products', [PartnerProductController::class, 'index'])->name('partner.products');
 
 // Cart routes
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -61,8 +64,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // Admin routes
-Route::middleware(['auth', 'admin'])->group(function ()
-{
+Route::middleware(['auth', 'admin'])->group(function () {
     // Dashboard route
     Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 

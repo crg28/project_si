@@ -184,7 +184,7 @@ class InstrumentFactory extends Factory
             'stock' => fake()->numberBetween(0, 50),
             'imagePath' => 'instruments/icon.jpg',
             'category' => $chosen['category'],
-            'youtube_video_id' => $chosen['youtube_video_id']
+            'youtube_video_id' => $chosen['youtube_video_id'],
         ];
     }
 }

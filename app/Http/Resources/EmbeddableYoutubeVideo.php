@@ -23,7 +23,7 @@ class EmbeddableYoutubeVideo implements ValidationRule
             $metadataByVideoId = app(YouTubeVideoService::class)->fetchVideosMetadata([$videoId]);
         } catch (RuntimeException $exception) {
             // Covers missing API key, HTTP errors and connection failures
-            Log::error('YouTube validation failed: ' . $exception->getMessage());
+            Log::error('YouTube validation failed: '.$exception->getMessage());
             $fail(__('messages.youtube_video_check_failed'));
 
             return;
